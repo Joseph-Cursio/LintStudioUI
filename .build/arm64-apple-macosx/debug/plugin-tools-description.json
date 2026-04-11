@@ -1,0 +1,1229 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.xctest/Contents/MacOS/LintStudioUIPackageTests",
+      "packagePath" : "/Users/josephcursio/xcode_projects/LintStudioUI",
+      "productName" : "LintStudioUIPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.LintStudioCore-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/sources",
+      "importPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/DiffLine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/DiffSpan.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/UnifiedDiffEngine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/CSVEscaping.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/HTMLEscaping.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/HTMLReportTemplate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintCategory.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintRule.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintSeverity.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintViolation.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/swift-version--2EA173B8A11288CE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "LintStudioCore",
+      "moduleOutputPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioCore.swiftmodule",
+      "objects" : [
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/DiffLine.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/DiffSpan.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/UnifiedDiffEngine.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/CSVEscaping.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/HTMLEscaping.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/HTMLReportTemplate.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintCategory.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintRule.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintSeverity.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintViolation.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/include/LintStudioCore-Swift.h",
+        "-swift-version",
+        "6",
+        "-default-isolation",
+        "MainActor",
+        "-I",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "lintstudioui"
+      ],
+      "outputFileMapPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/DiffLine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/DiffSpan.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/UnifiedDiffEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/CSVEscaping.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/HTMLEscaping.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/HTMLReportTemplate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintCategory.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintRule.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintSeverity.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintViolation.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioCore.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/DiffLine.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/DiffSpan.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/UnifiedDiffEngine.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/CSVEscaping.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/HTMLEscaping.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/HTMLReportTemplate.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintCategory.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintRule.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintSeverity.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintViolation.swift"
+      ],
+      "tempsPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.LintStudioCoreTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/sources",
+      "importPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/CSVEscapingTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLEscapingTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLReportTemplateTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/UnifiedDiffEngineTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/swift-version--2EA173B8A11288CE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioCore.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "LintStudioCoreTests",
+      "moduleOutputPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioCoreTests.swiftmodule",
+      "objects" : [
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/CSVEscapingTests.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLEscapingTests.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLReportTemplateTests.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/UnifiedDiffEngineTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-default-isolation",
+        "MainActor",
+        "-I",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "lintstudioui"
+      ],
+      "outputFileMapPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/CSVEscapingTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLEscapingTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLReportTemplateTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/UnifiedDiffEngineTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioCoreTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/CSVEscapingTests.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLEscapingTests.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLReportTemplateTests.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/UnifiedDiffEngineTests.swift"
+      ],
+      "tempsPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.LintStudioUI-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/sources",
+      "importPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/CategoryBadge.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/SeverityBadge.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/StatisticBadge.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Cards/SummaryCard.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/CodeBlock.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLine+Color.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLineView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/UnifiedDiffContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Export/ExportFormat.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Headers/GroupHeader.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/swift-version--2EA173B8A11288CE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioCore.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "LintStudioUI",
+      "moduleOutputPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioUI.swiftmodule",
+      "objects" : [
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/CategoryBadge.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/SeverityBadge.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/StatisticBadge.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/SummaryCard.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/CodeBlock.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/DiffLine+Color.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/DiffLineView.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/UnifiedDiffContentView.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/ExportFormat.swift.o",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/GroupHeader.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/include/LintStudioUI-Swift.h",
+        "-swift-version",
+        "6",
+        "-default-isolation",
+        "MainActor",
+        "-I",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "lintstudioui"
+      ],
+      "outputFileMapPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/CategoryBadge.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/SeverityBadge.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/StatisticBadge.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/SummaryCard.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/CodeBlock.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/DiffLine+Color.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/DiffLineView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/UnifiedDiffContentView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/ExportFormat.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/GroupHeader.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioUI.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/CategoryBadge.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/SeverityBadge.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/StatisticBadge.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Cards/SummaryCard.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/CodeBlock.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLine+Color.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLineView.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/UnifiedDiffContentView.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Export/ExportFormat.swift",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Headers/GroupHeader.swift"
+      ],
+      "tempsPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.LintStudioUIPackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/sources",
+      "importPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/swift-version--2EA173B8A11288CE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioCoreTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "LintStudioUIPackageTests",
+      "moduleOutputPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioUIPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j8",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/include/LintStudioUIPackageTests-Swift.h",
+        "-I",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-L",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+        "-plugin-path",
+        "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "lintstudioui"
+      ],
+      "outputFileMapPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules/LintStudioUIPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "LintStudioCore" : [
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "LintStudioCore",
+      "-package-name",
+      "lintstudioui",
+      "-c",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/DiffLine.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/DiffSpan.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/UnifiedDiffEngine.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/CSVEscaping.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/HTMLEscaping.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/HTMLReportTemplate.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintCategory.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintRule.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintSeverity.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintViolation.swift",
+      "-I",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/include/LintStudioCore-Swift.h",
+      "-swift-version",
+      "6",
+      "-default-isolation",
+      "MainActor",
+      "-I",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "lintstudioui",
+      "-driver-use-frontend-path",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "LintStudioCoreTests" : [
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "LintStudioCoreTests",
+      "-package-name",
+      "lintstudioui",
+      "-c",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/CSVEscapingTests.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLEscapingTests.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLReportTemplateTests.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/UnifiedDiffEngineTests.swift",
+      "-I",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-default-isolation",
+      "MainActor",
+      "-I",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "lintstudioui",
+      "-driver-use-frontend-path",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "LintStudioUI" : [
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "LintStudioUI",
+      "-package-name",
+      "lintstudioui",
+      "-c",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/CategoryBadge.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/SeverityBadge.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/StatisticBadge.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Cards/SummaryCard.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/CodeBlock.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLine+Color.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLineView.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/UnifiedDiffContentView.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Export/ExportFormat.swift",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Headers/GroupHeader.swift",
+      "-I",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/include/LintStudioUI-Swift.h",
+      "-swift-version",
+      "6",
+      "-default-isolation",
+      "MainActor",
+      "-I",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "lintstudioui",
+      "-driver-use-frontend-path",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc"
+    ],
+    "LintStudioUIPackageTests" : [
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "LintStudioUIPackageTests",
+      "-package-name",
+      "lintstudioui",
+      "-c",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j8",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/include/LintStudioUIPackageTests-Swift.h",
+      "-I",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-L",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/macosx/testing",
+      "-plugin-path",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "lintstudioui",
+      "-driver-use-frontend-path",
+      "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "LintStudioCore" : [
+
+    ],
+    "LintStudioCoreTests" : [
+      "LintStudioCore"
+    ],
+    "LintStudioUI" : [
+      "LintStudioCore"
+    ],
+    "LintStudioUIPackageTests" : [
+      "LintStudioCoreTests",
+      "LintStudioCore"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/DiffLine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/DiffSpan.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/DiffEngine/UnifiedDiffEngine.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/CSVEscaping.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/HTMLEscaping.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Export/HTMLReportTemplate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintCategory.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintRule.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintSeverity.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioCore/Protocols/LintViolation.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/sources"
+    },
+    "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/CSVEscapingTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLEscapingTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLReportTemplateTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/UnifiedDiffEngineTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/sources"
+    },
+    "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/CategoryBadge.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/SeverityBadge.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/StatisticBadge.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Cards/SummaryCard.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/CodeBlock.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLine+Color.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLineView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/UnifiedDiffContentView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Export/ExportFormat.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Headers/GroupHeader.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUI.build/sources"
+    },
+    "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/sources"
+    },
+    "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/CSVEscaping.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/DiffLine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/DiffSpan.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/HTMLEscaping.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/HTMLReportTemplate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintCategory.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintRule.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintSeverity.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/LintViolation.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCore.build/UnifiedDiffEngine.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/CSVEscapingTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLEscapingTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLReportTemplateTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/UnifiedDiffEngineTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/runner.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/swift-version--2EA173B8A11288CE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/josephcursio/Library/Developer/Toolchains/swift-6.2.4-RELEASE.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/swift-version--2EA173B8A11288CE.txt"
+    }
+  }
+}

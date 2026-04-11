@@ -1,0 +1,10 @@
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/CategoryBadge.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/SeverityBadge.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Badges/StatisticBadge.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Cards/SummaryCard.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/CodeBlock.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLine+Color.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/DiffLineView.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/CodeDisplay/UnifiedDiffContentView.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Export/ExportFormat.swift
+/Users/josephcursio/xcode_projects/LintStudioUI/Sources/LintStudioUI/Headers/GroupHeader.swift

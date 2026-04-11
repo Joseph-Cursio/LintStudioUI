@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/master.swiftdeps"
+  },
+  "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.derived/runner.swift": {
+    "dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/runner.d",
+    "object": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/runner.swift.o",
+    "swiftmodule": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/runner~partial.swiftmodule",
+    "swift-dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/runner.swiftdeps",
+    "diagnostics": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioUIPackageTests.build/runner.dia"
+  }
+}

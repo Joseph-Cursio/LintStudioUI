@@ -1,0 +1,33 @@
+{
+  "": {
+    "swift-dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/master.swiftdeps"
+  },
+  "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/CSVEscapingTests.swift": {
+    "dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/CSVEscapingTests.d",
+    "object": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/CSVEscapingTests.swift.o",
+    "swiftmodule": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/CSVEscapingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/CSVEscapingTests.swiftdeps",
+    "diagnostics": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/CSVEscapingTests.dia"
+  },
+  "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLEscapingTests.swift": {
+    "dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLEscapingTests.d",
+    "object": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLEscapingTests.swift.o",
+    "swiftmodule": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLEscapingTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLEscapingTests.swiftdeps",
+    "diagnostics": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLEscapingTests.dia"
+  },
+  "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/HTMLReportTemplateTests.swift": {
+    "dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLReportTemplateTests.d",
+    "object": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLReportTemplateTests.swift.o",
+    "swiftmodule": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLReportTemplateTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLReportTemplateTests.swiftdeps",
+    "diagnostics": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/HTMLReportTemplateTests.dia"
+  },
+  "/Users/josephcursio/xcode_projects/LintStudioUI/Tests/LintStudioCoreTests/UnifiedDiffEngineTests.swift": {
+    "dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/UnifiedDiffEngineTests.d",
+    "object": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/UnifiedDiffEngineTests.swift.o",
+    "swiftmodule": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/UnifiedDiffEngineTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/UnifiedDiffEngineTests.swiftdeps",
+    "diagnostics": "/Users/josephcursio/xcode_projects/LintStudioUI/.build/arm64-apple-macosx/debug/LintStudioCoreTests.build/UnifiedDiffEngineTests.dia"
+  }
+}
