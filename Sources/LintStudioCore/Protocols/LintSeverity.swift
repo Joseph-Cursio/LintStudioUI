@@ -5,7 +5,7 @@
 //  Protocol for lint rule severities
 //
 
-public protocol LintSeverity: Sendable, Hashable {
+public protocol LintSeverity: Hashable {
     var rawValue: String { get }
     var displayName: String { get }
     var isError: Bool { get }

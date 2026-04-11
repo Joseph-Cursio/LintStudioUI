@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol LintViolation: Identifiable, Sendable {
+public protocol LintViolation {
     associatedtype SeverityType: LintSeverity
     var identifier: UUID { get }
     var ruleIdentifier: String { get }

@@ -5,7 +5,7 @@
 //  Protocol for lint rules
 //
 
-public protocol LintRule: Identifiable, Sendable {
+public protocol LintRule {
     associatedtype CategoryType: LintCategory
     var identifier: String { get }
     var name: String { get }

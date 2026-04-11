@@ -5,7 +5,7 @@
 //  Protocol for lint rule categories
 //
 
-public protocol LintCategory: Sendable, Hashable {
+public protocol LintCategory: Hashable {
     var rawValue: String { get }
     var displayName: String { get }
 }
