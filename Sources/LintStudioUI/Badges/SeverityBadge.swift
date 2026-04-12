@@ -27,6 +27,8 @@ public struct SeverityBadge<S: LintSeverity>: View {
     }
 
     private var severityColor: Color {
-        severity.isError ? .red : .orange
+        if severity.isError { return .red }
+        if severity.isInfo { return .blue }
+        return .orange
     }
 }
