@@ -32,6 +32,7 @@ public enum HTMLReportTemplate {
               --border: #e0e0e0; --card-bg: #f8f8f8;
               --error: #d32f2f; --error-bg: #fdecea;
               --warning: #f57c00; --warning-bg: #fff3e0;
+              --info: #1565c0; --info-bg: #e3f2fd;
               --green: #2e7d32; --blue: #1565c0;
             }
             @media (prefers-color-scheme: dark) {
@@ -40,6 +41,7 @@ public enum HTMLReportTemplate {
                 --border: #333; --card-bg: #2a2a2a;
                 --error: #ef5350; --error-bg: #3e2723;
                 --warning: #ffb74d; --warning-bg: #3e2723;
+                --info: #42a5f5; --info-bg: #1a237e;
                 --green: #66bb6a; --blue: #42a5f5;
               }
             }
@@ -77,6 +79,7 @@ public enum HTMLReportTemplate {
             .rule-id { font-family: monospace; white-space: nowrap; }
             .severity-error { color: var(--error); font-weight: 600; }
             .severity-warning { color: var(--warning); font-weight: 600; }
+            .severity-info { color: var(--info); font-weight: 600; }
             .snippet-row td { padding: 0; }
             .snippet {
               font-family: 'SF Mono', Menlo, monospace; font-size: 12px;
