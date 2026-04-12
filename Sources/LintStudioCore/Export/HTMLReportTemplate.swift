@@ -9,7 +9,7 @@
 
 /// Provides the HTML wrapper template with embedded CSS for lint reports
 public enum HTMLReportTemplate {
-    public static func wrapInHTML(
+    nonisolated public static func wrapInHTML(
         title: String,
         timestamp: String,
         body: String,

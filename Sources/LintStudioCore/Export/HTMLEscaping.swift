@@ -7,7 +7,7 @@
 
 /// HTML entity escaping for safe string interpolation in HTML output
 public enum HTMLEscaping {
-    public static func escape(_ text: String) -> String {
+    nonisolated public static func escape(_ text: String) -> String {
         text.replacingOccurrences(of: "&", with: "&amp;")
             .replacingOccurrences(of: "<", with: "&lt;")
             .replacingOccurrences(of: ">", with: "&gt;")
