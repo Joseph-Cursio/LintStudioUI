@@ -11,11 +11,6 @@ public struct CodeBlock: View {
     public let code: String
     public let isError: Bool
 
-    public init(code: String, isError: Bool) {
-        self.code = code
-        self.isError = isError
-    }
-
     public var body: some View {
         HStack(alignment: .top, spacing: 0) {
             Rectangle()
@@ -33,5 +28,10 @@ public struct CodeBlock: View {
             RoundedRectangle(cornerRadius: 4)
                 .stroke(isError ? Color.red.opacity(0.3) : Color.green.opacity(0.3), lineWidth: 1)
         )
+    }
+
+    public init(code: String, isError: Bool) {
+        self.code = code
+        self.isError = isError
     }
 }

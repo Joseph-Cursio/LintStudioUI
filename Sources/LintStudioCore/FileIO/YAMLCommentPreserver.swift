@@ -66,6 +66,23 @@ public struct YAMLCommentPreserver: Sendable {
         self.keyOrder = keys
     }
 
+    /// Finds the YAML key on the first non-comment, non-empty line after the given index.
+    private static func findFollowingKey(lines: [String], afterIndex: Int) -> String? {
+        for idx in (afterIndex + 1)..<lines.count {
+            let trimmed = lines[idx].trimmingCharacters(in: .whitespaces)
+            if trimmed.isEmpty { continue }
+            if trimmed.hasPrefix("#") { continue }
+            if let colonIndex = trimmed.firstIndex(of: ":") {
+                let key = String(trimmed[trimmed.startIndex..<colonIndex])
+                    .trimmingCharacters(in: .whitespaces)
+                    .trimmingCharacters(in: CharacterSet(charactersIn: "\""))
+                return key.isEmpty ? nil : key
+            }
+            return nil
+        }
+        return nil
+    }
+
     /// Reinserts preserved comments into serialized YAML output.
     ///
     /// Comments are placed before their associated key. Comments without
@@ -102,22 +119,5 @@ public struct YAMLCommentPreserver: Sendable {
         }
 
         return lines.joined(separator: "\n")
-    }
-
-    /// Finds the YAML key on the first non-comment, non-empty line after the given index.
-    private static func findFollowingKey(lines: [String], afterIndex: Int) -> String? {
-        for idx in (afterIndex + 1)..<lines.count {
-            let trimmed = lines[idx].trimmingCharacters(in: .whitespaces)
-            if trimmed.isEmpty { continue }
-            if trimmed.hasPrefix("#") { continue }
-            if let colonIndex = trimmed.firstIndex(of: ":") {
-                let key = String(trimmed[trimmed.startIndex..<colonIndex])
-                    .trimmingCharacters(in: .whitespaces)
-                    .trimmingCharacters(in: CharacterSet(charactersIn: "\""))
-                return key.isEmpty ? nil : key
-            }
-            return nil
-        }
-        return nil
     }
 }

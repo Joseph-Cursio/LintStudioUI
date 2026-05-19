@@ -13,13 +13,6 @@ public struct SummaryCard: View {
     public let subtitle: String
     public let color: Color
 
-    public init(title: String, count: Int, subtitle: String, color: Color) {
-        self.title = title
-        self.count = count
-        self.subtitle = subtitle
-        self.color = color
-    }
-
     public var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(title)
@@ -47,5 +40,12 @@ public struct SummaryCard: View {
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(color.opacity(0.2), lineWidth: 0.5)
         )
+    }
+
+    public init(title: String, count: Int, subtitle: String, color: Color) {
+        self.title = title
+        self.count = count
+        self.subtitle = subtitle
+        self.color = color
     }
 }

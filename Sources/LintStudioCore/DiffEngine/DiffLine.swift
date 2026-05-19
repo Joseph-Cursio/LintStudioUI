@@ -18,12 +18,6 @@ public struct DiffLine: Sendable {
     /// Character-level spans for inline highlighting (empty = no inline diff)
     public var spans: [DiffSpan]
 
-    public init(text: String, kind: Kind, spans: [DiffSpan] = []) {
-        self.text = text
-        self.kind = kind
-        self.spans = spans
-    }
-
     public var prefix: String {
         switch kind {
         case .added:
@@ -35,5 +29,11 @@ public struct DiffLine: Sendable {
         case .unchanged:
             " "
         }
+    }
+
+    public init(text: String, kind: Kind, spans: [DiffSpan] = []) {
+        self.text = text
+        self.kind = kind
+        self.spans = spans
     }
 }

@@ -11,10 +11,6 @@ import SwiftUI
 public struct SeverityBadge<S: LintSeverity>: View {
     public let severity: S
 
-    public init(severity: S) {
-        self.severity = severity
-    }
-
     public var body: some View {
         Text(severity.rawValue.uppercased())
             .font(.caption2)
@@ -34,5 +30,9 @@ public struct SeverityBadge<S: LintSeverity>: View {
             return .blue
         }
         return .orange
+    }
+
+    public init(severity: S) {
+        self.severity = severity
     }
 }

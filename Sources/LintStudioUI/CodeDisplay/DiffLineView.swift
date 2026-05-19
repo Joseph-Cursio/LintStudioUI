@@ -11,10 +11,6 @@ import SwiftUI
 public struct DiffLineView: View {
     public let line: DiffLine
 
-    public init(line: DiffLine) {
-        self.line = line
-    }
-
     public var body: some View {
         HStack(spacing: 0) {
             Text(line.prefix)
@@ -44,5 +40,9 @@ public struct DiffLineView: View {
             Text(line.text.isEmpty ? " " : line.text)
                 .font(.system(.body, design: .monospaced))
         }
+    }
+
+    public init(line: DiffLine) {
+        self.line = line
     }
 }

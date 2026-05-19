@@ -12,12 +12,6 @@ public struct StatisticBadge: View {
     public let value: String
     public let color: Color
 
-    public init(label: String, value: String, color: Color) {
-        self.label = label
-        self.value = value
-        self.color = color
-    }
-
     public var body: some View {
         VStack(spacing: 4) {
             Text(value)
@@ -29,5 +23,11 @@ public struct StatisticBadge: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
         }
+    }
+
+    public init(label: String, value: String, color: Color) {
+        self.label = label
+        self.value = value
+        self.color = color
     }
 }

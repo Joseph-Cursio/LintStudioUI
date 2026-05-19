@@ -14,18 +14,6 @@ public struct UnifiedDiffContentView: View {
     public var beforeLabel: String
     public var afterLabel: String
 
-    public init(
-        before: String,
-        after: String,
-        beforeLabel: String = "Before",
-        afterLabel: String = "After"
-    ) {
-        self.before = before
-        self.after = after
-        self.beforeLabel = beforeLabel
-        self.afterLabel = afterLabel
-    }
-
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
@@ -72,5 +60,17 @@ public struct UnifiedDiffContentView: View {
             }
         }
         .padding(.vertical, 4)
+    }
+
+    public init(
+        before: String,
+        after: String,
+        beforeLabel: String = "Before",
+        afterLabel: String = "After"
+    ) {
+        self.before = before
+        self.after = after
+        self.beforeLabel = beforeLabel
+        self.afterLabel = afterLabel
     }
 }
