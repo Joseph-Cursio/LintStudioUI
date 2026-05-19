@@ -11,7 +11,6 @@ import Testing
 @MainActor
 @Suite("CSVEscaping Tests")
 struct CSVEscapingTests {
-
     @Test("Plain text is returned unchanged")
     func plainText() {
         #expect(CSVEscaping.escape("hello") == "hello")

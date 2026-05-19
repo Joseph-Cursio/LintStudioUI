@@ -12,7 +12,6 @@ import Testing
 @MainActor
 @Suite("YAMLCommentPreserver Tests")
 struct YAMLCommentPreserverTests {
-
     @Test("Extracts comments from YAML content")
     func extractsComments() {
         let yaml = """

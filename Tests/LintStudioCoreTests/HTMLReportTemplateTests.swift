@@ -11,7 +11,6 @@ import Testing
 @MainActor
 @Suite("HTMLReportTemplate Tests")
 struct HTMLReportTemplateTests {
-
     @Test("Wraps body in valid HTML structure")
     func wrapsInHTML() {
         let result = HTMLReportTemplate.wrapInHTML(

@@ -11,7 +11,6 @@ import Testing
 @MainActor
 @Suite("HTMLEscaping Tests")
 struct HTMLEscapingTests {
-
     @Test("Escapes ampersands")
     func escapesAmpersands() {
         #expect(HTMLEscaping.escape("A & B") == "A &amp; B")

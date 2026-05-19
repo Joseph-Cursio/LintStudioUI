@@ -12,7 +12,6 @@ import Testing
 @MainActor
 @Suite("UnifiedDiffEngine Tests")
 struct UnifiedDiffEngineTests {
-
     // MARK: - Identical Content
 
     @Test("Identical strings produce only unchanged lines")

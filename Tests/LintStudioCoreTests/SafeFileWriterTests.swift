@@ -12,7 +12,6 @@ import Testing
 @MainActor
 @Suite("SafeFileWriter Tests")
 struct SafeFileWriterTests {
-
     private func tempDir() throws -> URL {
         let dir = FileManager.default.temporaryDirectory
             .appendingPathComponent("SafeFileWriterTests-\(UUID().uuidString)")

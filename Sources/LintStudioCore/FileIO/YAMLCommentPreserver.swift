@@ -13,7 +13,6 @@ import Foundation
 /// comment lines and their positions from the original file, then reinserts
 /// them into the serialized output at matching locations.
 public struct YAMLCommentPreserver: Sendable {
-
     /// A comment line with its original context.
     public struct CommentEntry: Sendable {
         /// The full comment line (including `#` prefix and whitespace).

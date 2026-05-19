@@ -9,7 +9,6 @@ import Foundation
 
 /// Writes files atomically via a temp file + move, with optional backup.
 public enum SafeFileWriter {
-
     /// Writes content to a file atomically, optionally creating a timestamped backup first.
     ///
     /// The write is performed by writing to a UUID-named temp file in the same directory,
