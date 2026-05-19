@@ -31,8 +31,7 @@ public struct DiffLineView: View {
         .background(line.backgroundColor)
     }
 
-    @ViewBuilder
-    private var lineContent: some View {
+    @ViewBuilder private var lineContent: some View {
         if !line.spans.isEmpty {
             HStack(spacing: 0) {
                 ForEach(Array(line.spans.enumerated()), id: \.offset) { _, span in
