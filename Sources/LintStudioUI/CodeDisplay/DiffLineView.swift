@@ -33,9 +33,9 @@ public struct DiffLineView: View {
 
     @ViewBuilder
     private var lineContent: some View {
-        if let spans = line.spans, !spans.isEmpty {
+        if !line.spans.isEmpty {
             HStack(spacing: 0) {
-                ForEach(Array(spans.enumerated()), id: \.offset) { _, span in
+                ForEach(Array(line.spans.enumerated()), id: \.offset) { _, span in
                     Text(span.text)
                         .font(.system(.body, design: .monospaced))
                         .background(span.isHighlighted ? line.highlightColor : .clear)

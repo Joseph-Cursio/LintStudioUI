@@ -15,10 +15,10 @@ public struct DiffLine: Sendable {
 
     public let text: String
     public let kind: Kind
-    /// Character-level spans for inline highlighting (nil = no inline diff)
-    public var spans: [DiffSpan]?
+    /// Character-level spans for inline highlighting (empty = no inline diff)
+    public var spans: [DiffSpan]
 
-    public init(text: String, kind: Kind, spans: [DiffSpan]? = nil) {
+    public init(text: String, kind: Kind, spans: [DiffSpan] = []) {
         self.text = text
         self.kind = kind
         self.spans = spans

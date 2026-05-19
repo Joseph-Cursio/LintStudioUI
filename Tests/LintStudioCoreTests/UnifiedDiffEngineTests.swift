@@ -141,8 +141,8 @@ struct UnifiedDiffEngineTests {
         let removedLine = diff.first { $0.kind == .removed }
         let addedLine = diff.first { $0.kind == .added }
 
-        #expect(removedLine?.spans != nil)
-        #expect(addedLine?.spans != nil)
+        #expect(removedLine?.spans.isEmpty == false)
+        #expect(addedLine?.spans.isEmpty == false)
 
         if let spans = removedLine?.spans {
             let highlightedText = spans.filter(\.isHighlighted).map(\.text).joined()
@@ -160,7 +160,7 @@ struct UnifiedDiffEngineTests {
         let text = "unchanged line"
         let diff = UnifiedDiffEngine.computeDiff(before: text, after: text)
 
-        #expect(diff[0].spans == nil)
+        #expect(diff[0].spans.isEmpty)
     }
 
     @Test("Completely different paired lines highlight all characters")
