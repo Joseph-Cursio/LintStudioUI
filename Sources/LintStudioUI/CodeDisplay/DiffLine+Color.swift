@@ -9,14 +9,19 @@ import LintStudioCore
 import SwiftUI
 
 public extension DiffLine {
+    private enum Palette {
+        static let backgroundOpacity = 0.12
+        static let highlightOpacity = 0.3
+    }
+
     /// The row background color for this line's diff kind.
     var backgroundColor: Color {
         switch kind {
         case .added:
-            Color.green.opacity(0.12)
+            Color.green.opacity(Palette.backgroundOpacity)
 
         case .removed:
-            Color.red.opacity(0.12)
+            Color.red.opacity(Palette.backgroundOpacity)
 
         case .unchanged:
             .clear
@@ -27,10 +32,10 @@ public extension DiffLine {
     var highlightColor: Color {
         switch kind {
         case .added:
-            Color.green.opacity(0.3)
+            Color.green.opacity(Palette.highlightOpacity)
 
         case .removed:
-            Color.red.opacity(0.3)
+            Color.red.opacity(Palette.highlightOpacity)
 
         case .unchanged:
             .clear

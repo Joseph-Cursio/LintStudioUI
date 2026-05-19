@@ -8,20 +8,32 @@
 import SwiftUI
 
 public struct SummaryCard: View {
+    private enum Layout {
+        static let contentSpacing: CGFloat = 4
+        static let valueSpacing: CGFloat = 6
+        static let padding: CGFloat = 12
+        static let minHeight: CGFloat = 60
+        static let cornerRadius: CGFloat = 10
+        static let titleTracking: CGFloat = 0.5
+        static let borderWidth: CGFloat = 0.5
+        static let backgroundOpacity = 0.08
+        static let borderOpacity = 0.2
+    }
+
     public let title: String
     public let count: Int
     public let subtitle: String
     public let color: Color
 
     public var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: Layout.contentSpacing) {
             Text(title)
                 .font(.caption2)
                 .fontWeight(.semibold)
                 .foregroundStyle(color)
-                .tracking(0.5)
+                .tracking(Layout.titleTracking)
 
-            HStack(alignment: .firstTextBaseline, spacing: 6) {
+            HStack(alignment: .firstTextBaseline, spacing: Layout.valueSpacing) {
                 Text("\(count)")
                     .font(.title)
                     .fontWeight(.bold)
@@ -32,13 +44,13 @@ public struct SummaryCard: View {
                     .foregroundStyle(.secondary)
             }
         }
-        .padding(12)
-        .frame(maxWidth: .infinity, minHeight: 60, alignment: .leading)
-        .background(color.opacity(0.08))
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding(Layout.padding)
+        .frame(maxWidth: .infinity, minHeight: Layout.minHeight, alignment: .leading)
+        .background(color.opacity(Layout.backgroundOpacity))
+        .clipShape(RoundedRectangle(cornerRadius: Layout.cornerRadius))
         .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .strokeBorder(color.opacity(0.2), lineWidth: 0.5)
+            RoundedRectangle(cornerRadius: Layout.cornerRadius)
+                .strokeBorder(color.opacity(Layout.borderOpacity), lineWidth: Layout.borderWidth)
         )
     }
 

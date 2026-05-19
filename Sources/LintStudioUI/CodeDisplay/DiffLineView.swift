@@ -9,6 +9,11 @@ import LintStudioCore
 import SwiftUI
 
 public struct DiffLineView: View {
+    private enum Layout {
+        static let prefixColumnWidth: CGFloat = 20
+        static let horizontalPadding: CGFloat = 12
+    }
+
     public let line: DiffLine
 
     public var body: some View {
@@ -17,12 +22,12 @@ public struct DiffLineView: View {
                 .font(.system(.body, design: .monospaced))
                 .fontWeight(.bold)
                 .foregroundStyle(line.prefixColor)
-                .frame(width: 20, alignment: .center)
+                .frame(width: Layout.prefixColumnWidth, alignment: .center)
 
             lineContent
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(.horizontal, 12)
+        .padding(.horizontal, Layout.horizontalPadding)
         .padding(.vertical, 1)
         .background(line.backgroundColor)
     }

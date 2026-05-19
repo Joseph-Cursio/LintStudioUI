@@ -8,12 +8,16 @@
 import SwiftUI
 
 public struct StatisticBadge: View {
+    private enum Layout {
+        static let spacing: CGFloat = 4
+    }
+
     public let label: String
     public let value: String
     public let color: Color
 
     public var body: some View {
-        VStack(spacing: 4) {
+        VStack(spacing: Layout.spacing) {
             Text(value)
                 .font(.title3)
                 .fontWeight(.bold)

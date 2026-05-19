@@ -9,6 +9,16 @@ import LintStudioCore
 import SwiftUI
 
 public struct UnifiedDiffContentView: View {
+    private enum Layout {
+        static let legendSpacing: CGFloat = 16
+        static let swatchSpacing: CGFloat = 4
+        static let swatchCornerRadius: CGFloat = 2
+        static let swatchSize: CGFloat = 12
+        static let legendVerticalPadding: CGFloat = 8
+        static let linesVerticalPadding: CGFloat = 4
+        static let swatchOpacity = 0.12
+    }
+
     public let before: String
     public let after: String
     public var beforeLabel: String
@@ -25,19 +35,19 @@ public struct UnifiedDiffContentView: View {
     }
 
     private var diffLegend: some View {
-        HStack(spacing: 16) {
-            HStack(spacing: 4) {
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(Color.red.opacity(0.12))
-                    .frame(width: 12, height: 12)
+        HStack(spacing: Layout.legendSpacing) {
+            HStack(spacing: Layout.swatchSpacing) {
+                RoundedRectangle(cornerRadius: Layout.swatchCornerRadius)
+                    .fill(Color.red.opacity(Layout.swatchOpacity))
+                    .frame(width: Layout.swatchSize, height: Layout.swatchSize)
                 Text(beforeLabel)
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
-            HStack(spacing: 4) {
-                RoundedRectangle(cornerRadius: 2)
-                    .fill(Color.green.opacity(0.12))
-                    .frame(width: 12, height: 12)
+            HStack(spacing: Layout.swatchSpacing) {
+                RoundedRectangle(cornerRadius: Layout.swatchCornerRadius)
+                    .fill(Color.green.opacity(Layout.swatchOpacity))
+                    .frame(width: Layout.swatchSize, height: Layout.swatchSize)
                 Text(afterLabel)
                     .font(.caption)
                     .foregroundStyle(.secondary)
@@ -45,7 +55,7 @@ public struct UnifiedDiffContentView: View {
             Spacer()
         }
         .padding(.horizontal)
-        .padding(.vertical, 8)
+        .padding(.vertical, Layout.legendVerticalPadding)
     }
 
     private var diffLinesList: some View {
@@ -59,7 +69,7 @@ public struct UnifiedDiffContentView: View {
                 DiffLineView(line: line)
             }
         }
-        .padding(.vertical, 4)
+        .padding(.vertical, Layout.linesVerticalPadding)
     }
 
     public init(

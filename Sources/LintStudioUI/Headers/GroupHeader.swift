@@ -8,18 +8,23 @@
 import SwiftUI
 
 public struct GroupHeader: View {
+    private enum Layout {
+        static let spacing: CGFloat = 8
+        static let barCornerRadius: CGFloat = 3
+        static let barHeight: CGFloat = 6
+        static let barTrackWidth: CGFloat = 80
+        static let barContainerHeight: CGFloat = 14
+        static let minBarWidth: CGFloat = 3
+        static let highRatioThreshold = 0.7
+        static let mediumRatioThreshold = 0.3
+    }
+
     public let title: String
     public let count: Int
     public let maxCount: Int
 
-    public init(title: String, count: Int, maxCount: Int) {
-        self.title = title
-        self.count = count
-        self.maxCount = maxCount
-    }
-
     public var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: Layout.spacing) {
             Text(title)
                 .font(.headline)
                 .lineLimit(1)
@@ -31,29 +36,35 @@ public struct GroupHeader: View {
 
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 3)
+                    RoundedRectangle(cornerRadius: Layout.barCornerRadius)
                         .fill(Color(NSColor.separatorColor))
-                        .frame(height: 6)
+                        .frame(height: Layout.barHeight)
 
-                    RoundedRectangle(cornerRadius: 3)
+                    RoundedRectangle(cornerRadius: Layout.barCornerRadius)
                         .fill(barColor)
-                        .frame(width: barWidth(in: geometry.size.width), height: 6)
+                        .frame(width: barWidth(in: geometry.size.width), height: Layout.barHeight)
                 }
                 .frame(height: geometry.size.height)
             }
-            .frame(width: 80, height: 14)
+            .frame(width: Layout.barTrackWidth, height: Layout.barContainerHeight)
         }
     }
 
     private var barColor: Color {
         let ratio = maxCount > 0 ? Double(count) / Double(maxCount) : 0
-        if ratio > 0.7 {
+        if ratio > Layout.highRatioThreshold {
             return .red
         }
-        if ratio > 0.3 {
+        if ratio > Layout.mediumRatioThreshold {
             return .orange
         }
         return .yellow
+    }
+
+    public init(title: String, count: Int, maxCount: Int) {
+        self.title = title
+        self.count = count
+        self.maxCount = maxCount
     }
 
     private func barWidth(in totalWidth: CGFloat) -> CGFloat {
@@ -61,6 +72,6 @@ public struct GroupHeader: View {
             return 0
         }
         let proportion = CGFloat(count) / CGFloat(maxCount)
-        return max(proportion * totalWidth, 3)
+        return max(proportion * totalWidth, Layout.minBarWidth)
     }
 }
