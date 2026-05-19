@@ -5,8 +5,8 @@
 //  View for rendering a single diff line with optional character-level highlighting
 //
 
-import SwiftUI
 import LintStudioCore
+import SwiftUI
 
 public struct DiffLineView: View {
     public let line: DiffLine

@@ -5,8 +5,8 @@
 //  SwiftUI Color extensions for DiffLine rendering
 //
 
-import SwiftUI
 import LintStudioCore
+import SwiftUI
 
 extension DiffLine {
     public var backgroundColor: Color {

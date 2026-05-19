@@ -5,9 +5,9 @@
 //  Tests for atomic file writing with backups
 //
 
-import Testing
 import Foundation
 @testable import LintStudioCore
+import Testing
 
 @MainActor
 @Suite("SafeFileWriter Tests")

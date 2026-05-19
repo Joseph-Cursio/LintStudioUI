@@ -5,8 +5,8 @@
 //  Tests for CSV field escaping
 //
 
-import Testing
 @testable import LintStudioCore
+import Testing
 
 @MainActor
 @Suite("CSVEscaping Tests")

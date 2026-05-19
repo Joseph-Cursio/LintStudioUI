@@ -5,8 +5,8 @@
 //  Line-by-line unified diff view with GitHub-style green/red highlighting
 //
 
-import SwiftUI
 import LintStudioCore
+import SwiftUI
 
 public struct UnifiedDiffContentView: View {
     public let before: String

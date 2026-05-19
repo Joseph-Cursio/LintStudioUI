@@ -5,9 +5,9 @@
 //  Tests for YAML comment extraction and reinsertion
 //
 
-import Testing
 import Foundation
 @testable import LintStudioCore
+import Testing
 
 @MainActor
 @Suite("YAMLCommentPreserver Tests")

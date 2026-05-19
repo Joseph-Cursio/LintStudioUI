@@ -5,8 +5,8 @@
 //  Tests for the HTML report template wrapper
 //
 
-import Testing
 @testable import LintStudioCore
+import Testing
 
 @MainActor
 @Suite("HTMLReportTemplate Tests")

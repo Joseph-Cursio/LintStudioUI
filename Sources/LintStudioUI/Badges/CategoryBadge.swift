@@ -5,8 +5,8 @@
 //  A badge displaying a lint rule category
 //
 
-import SwiftUI
 import LintStudioCore
+import SwiftUI
 
 public struct CategoryBadge<C: LintCategory>: View {
     public let category: C

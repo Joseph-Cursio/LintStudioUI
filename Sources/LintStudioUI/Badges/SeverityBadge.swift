@@ -5,8 +5,8 @@
 //  A badge displaying a lint severity level
 //
 
-import SwiftUI
 import LintStudioCore
+import SwiftUI
 
 public struct SeverityBadge<S: LintSeverity>: View {
     public let severity: S

@@ -5,8 +5,8 @@
 //  Tests for HTML entity escaping
 //
 
-import Testing
 @testable import LintStudioCore
+import Testing
 
 @MainActor
 @Suite("HTMLEscaping Tests")

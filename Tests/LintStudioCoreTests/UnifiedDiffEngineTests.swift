@@ -5,9 +5,9 @@
 //  Tests for the LCS diff algorithm and character-level highlighting
 //
 
-import Testing
 import Foundation
 @testable import LintStudioCore
+import Testing
 
 @MainActor
 @Suite("UnifiedDiffEngine Tests")
