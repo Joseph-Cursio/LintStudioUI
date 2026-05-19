@@ -43,7 +43,7 @@ public struct YAMLCommentPreserver: Sendable {
             let trimmed = line.trimmingCharacters(in: .whitespaces)
 
             // Track top-level key order
-            if !trimmed.hasPrefix("#") && !trimmed.isEmpty && !line.hasPrefix(" ") {
+            if !trimmed.hasPrefix("#"), !trimmed.isEmpty, !line.hasPrefix(" ") {
                 if let colonIndex = trimmed.firstIndex(of: ":") {
                     let key = String(trimmed[trimmed.startIndex..<colonIndex])
                         .trimmingCharacters(in: .whitespaces)

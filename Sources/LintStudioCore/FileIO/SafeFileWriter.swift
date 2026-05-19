@@ -29,7 +29,7 @@ public enum SafeFileWriter {
         let fileManager = FileManager.default
 
         // Create backup if requested and file exists
-        if createBackup && fileManager.fileExists(atPath: destination.path) {
+        if createBackup, fileManager.fileExists(atPath: destination.path) {
             let timestamp = Int(Date.now.timeIntervalSince1970)
             let backupName = "\(destination.lastPathComponent).\(timestamp).backup"
             let backupURL = destination

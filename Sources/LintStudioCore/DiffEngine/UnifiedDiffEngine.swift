@@ -48,11 +48,11 @@ public enum UnifiedDiffEngine {
         var jdx = newLines.count
 
         while idx > 0 || jdx > 0 {
-            if idx > 0 && jdx > 0 && oldLines[idx - 1] == newLines[jdx - 1] {
+            if idx > 0, jdx > 0, oldLines[idx - 1] == newLines[jdx - 1] {
                 result.append(DiffLine(text: oldLines[idx - 1], kind: .unchanged))
                 idx -= 1
                 jdx -= 1
-            } else if jdx > 0 && (idx == 0 || table[idx][jdx - 1] >= table[idx - 1][jdx]) {
+            } else if jdx > 0, idx == 0 || table[idx][jdx - 1] >= table[idx - 1][jdx] {
                 result.append(DiffLine(text: newLines[jdx - 1], kind: .added))
                 jdx -= 1
             } else if idx > 0 {
@@ -70,18 +70,18 @@ public enum UnifiedDiffEngine {
         var idx = 0
         while idx < lines.count {
             var removedStart = idx
-            while removedStart < lines.count && lines[removedStart].kind == .removed {
+            while removedStart < lines.count, lines[removedStart].kind == .removed {
                 removedStart += 1
             }
             let removedCount = removedStart - idx
 
             var addedEnd = removedStart
-            while addedEnd < lines.count && lines[addedEnd].kind == .added {
+            while addedEnd < lines.count, lines[addedEnd].kind == .added {
                 addedEnd += 1
             }
             let addedCount = addedEnd - removedStart
 
-            if removedCount > 0 && addedCount > 0 {
+            if removedCount > 0, addedCount > 0 {
                 let pairCount = min(removedCount, addedCount)
                 for pairIdx in 0..<pairCount {
                     let removedLineIdx = idx + pairIdx
@@ -140,7 +140,7 @@ public enum UnifiedDiffEngine {
         var idx = oldChars.count
         var jdx = newChars.count
 
-        while idx > 0 && jdx > 0 {
+        while idx > 0, jdx > 0 {
             if oldChars[idx - 1] == newChars[jdx - 1] {
                 oldIndices.insert(idx - 1)
                 newIndices.insert(jdx - 1)
