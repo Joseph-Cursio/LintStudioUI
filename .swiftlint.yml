@@ -147,3 +147,7 @@ analyzer_rules:
 - capture_variable
 - unused_import
 - explicit_self
+# The flagged lines are all HTML/CSS/YAML content inside multiline string
+# literals, not Swift code. The rule stays active for actual source.
+indentation_width:
+  include_multiline_strings: false
