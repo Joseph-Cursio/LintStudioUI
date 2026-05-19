@@ -11,6 +11,7 @@ import Foundation
 public protocol LintViolation {
     /// The severity type this violation is classified by.
     associatedtype SeverityType: LintSeverity
+
     /// A stable unique identifier for this violation instance.
     var identifier: UUID { get }
     /// The identifier of the rule that produced this violation.

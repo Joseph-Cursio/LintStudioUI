@@ -9,6 +9,7 @@
 public protocol LintRule {
     /// The category type this rule is classified by.
     associatedtype CategoryType: LintCategory
+
     /// A stable unique identifier for the rule.
     var identifier: String { get }
     /// The human-readable name of the rule.
