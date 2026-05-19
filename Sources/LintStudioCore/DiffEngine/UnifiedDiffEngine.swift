@@ -7,6 +7,11 @@
 
 /// Line-by-line diff engine using Longest Common Subsequence (LCS)
 public enum UnifiedDiffEngine {
+    /// Computes a line-by-line unified diff with character-level inline highlights.
+    /// - Parameters:
+    ///   - before: The original text.
+    ///   - after: The modified text.
+    /// - Returns: The ordered diff lines transforming `before` into `after`.
     public static func computeDiff(before: String, after: String) -> [DiffLine] {
         let oldLines = before.components(separatedBy: .newlines)
         let newLines = after.components(separatedBy: .newlines)

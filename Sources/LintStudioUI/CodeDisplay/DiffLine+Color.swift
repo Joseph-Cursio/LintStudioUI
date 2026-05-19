@@ -9,6 +9,7 @@ import LintStudioCore
 import SwiftUI
 
 extension DiffLine {
+    /// The row background color for this line's diff kind.
     public var backgroundColor: Color {
         switch kind {
         case .added: Color.green.opacity(0.12)
@@ -17,6 +18,7 @@ extension DiffLine {
         }
     }
 
+    /// The inline character-highlight color for this line's diff kind.
     public var highlightColor: Color {
         switch kind {
         case .added: Color.green.opacity(0.3)
@@ -25,6 +27,7 @@ extension DiffLine {
         }
     }
 
+    /// The color of the gutter prefix glyph for this line's diff kind.
     public var prefixColor: Color {
         switch kind {
         case .added: .green

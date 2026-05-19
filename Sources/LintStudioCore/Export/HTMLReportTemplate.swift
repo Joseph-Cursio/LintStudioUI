@@ -9,6 +9,13 @@
 
 /// Provides the HTML wrapper template with embedded CSS for lint reports
 public enum HTMLReportTemplate {
+    /// Wraps report body HTML in a complete HTML document with embedded CSS.
+    /// - Parameters:
+    ///   - title: The report title, shown in the `<title>` and `<h1>`.
+    ///   - timestamp: A human-readable generation timestamp.
+    ///   - body: The pre-rendered HTML body content.
+    ///   - footerText: Text shown in the document footer.
+    /// - Returns: A complete HTML document string.
     nonisolated public static func wrapInHTML(
         title: String,
         timestamp: String,
