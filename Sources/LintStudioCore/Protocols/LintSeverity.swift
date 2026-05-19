@@ -12,7 +12,7 @@ public protocol LintSeverity: Hashable {
     var isInfo: Bool { get }
 }
 
-extension LintSeverity {
+public extension LintSeverity {
     /// Default: most severities are not info-level
-    public var isInfo: Bool { false }
+    var isInfo: Bool { false }
 }
