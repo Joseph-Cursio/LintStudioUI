@@ -162,7 +162,9 @@ public enum UnifiedDiffEngine {
     }
 
     private static func buildSpans(chars: [Character], lcsIndices: Set<Int>) -> [DiffSpan] {
-        guard !chars.isEmpty else { return [] }
+        guard !chars.isEmpty else {
+            return []
+        }
 
         var spans: [DiffSpan] = []
         var currentText = ""

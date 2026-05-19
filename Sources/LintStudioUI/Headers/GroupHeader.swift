@@ -47,13 +47,19 @@ public struct GroupHeader: View {
 
     private var barColor: Color {
         let ratio = maxCount > 0 ? Double(count) / Double(maxCount) : 0
-        if ratio > 0.7 { return .red }
-        if ratio > 0.3 { return .orange }
+        if ratio > 0.7 {
+            return .red
+        }
+        if ratio > 0.3 {
+            return .orange
+        }
         return .yellow
     }
 
     private func barWidth(in totalWidth: CGFloat) -> CGFloat {
-        guard maxCount > 0 else { return 0 }
+        guard maxCount > 0 else {
+            return 0
+        }
         let proportion = CGFloat(count) / CGFloat(maxCount)
         return max(proportion * totalWidth, 3)
     }
