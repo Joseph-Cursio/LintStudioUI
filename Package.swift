@@ -1,12 +1,12 @@
 // swift-tools-version: 6.2
 import PackageDescription
 
-let swiftSettings: [SwiftSetting] = [
+let kSwiftSettings: [SwiftSetting] = [
     .swiftLanguageMode(.v6),
     .defaultIsolation(MainActor.self)
 ]
 
-let package = Package(
+let kPackage = Package(
     name: "LintStudioUI",
     platforms: [.macOS(.v14)],
     products: [
@@ -22,17 +22,17 @@ let package = Package(
     targets: [
         .target(
             name: "LintStudioCore",
-            swiftSettings: swiftSettings
+            swiftSettings: kSwiftSettings
         ),
         .target(
             name: "LintStudioUI",
             dependencies: ["LintStudioCore"],
-            swiftSettings: swiftSettings
+            swiftSettings: kSwiftSettings
         ),
         .testTarget(
             name: "LintStudioCoreTests",
             dependencies: ["LintStudioCore"],
-            swiftSettings: swiftSettings
+            swiftSettings: kSwiftSettings
         )
     ]
 )
