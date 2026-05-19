@@ -26,9 +26,14 @@ public struct DiffLine: Sendable {
 
     public var prefix: String {
         switch kind {
-        case .added: "+"
-        case .removed: "\u{2212}"
-        case .unchanged: " "
+        case .added:
+            "+"
+
+        case .removed:
+            "\u{2212}"
+
+        case .unchanged:
+            " "
         }
     }
 }

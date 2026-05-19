@@ -16,17 +16,27 @@ public enum ExportFormat: String, CaseIterable, Identifiable, Sendable {
 
     public var subtitle: String {
         switch self {
-        case .html: "Interactive report"
-        case .json: "Machine-readable"
-        case .csv: "Spreadsheet"
+        case .html:
+            "Interactive report"
+
+        case .json:
+            "Machine-readable"
+
+        case .csv:
+            "Spreadsheet"
         }
     }
 
     public var iconName: String {
         switch self {
-        case .html: "doc.richtext"
-        case .json: "curlybraces"
-        case .csv: "tablecells"
+        case .html:
+            "doc.richtext"
+
+        case .json:
+            "curlybraces"
+
+        case .csv:
+            "tablecells"
         }
     }
 
