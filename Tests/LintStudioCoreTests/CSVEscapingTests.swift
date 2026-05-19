@@ -33,7 +33,7 @@ struct CSVEscapingTests {
 
     @Test("Empty string is returned unchanged")
     func emptyString() {
-        #expect(CSVEscaping.escape("") == "")
+        #expect(CSVEscaping.escape("").isEmpty)
     }
 
     @Test("Text with commas and quotes is escaped and quoted")

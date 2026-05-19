@@ -33,7 +33,7 @@ struct HTMLEscapingTests {
 
     @Test("Handles empty string")
     func handlesEmptyString() {
-        #expect(HTMLEscaping.escape("") == "")
+        #expect(HTMLEscaping.escape("").isEmpty)
     }
 
     @Test("Escapes multiple special characters in sequence")
