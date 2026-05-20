@@ -92,8 +92,8 @@ struct YAMLCommentPreserverTests {
         #expect(preserver.keyOrder.isEmpty)
     }
 
-    @Test("Appends orphaned comments at the end")
-    func orphanedComments() {
+    @Test("Discards orphaned comments instead of appending them")
+    func orphanedCommentsDiscarded() {
         let original = """
         # This comment has no matching key
         disabled_rules:
@@ -108,8 +108,30 @@ struct YAMLCommentPreserverTests {
         """
         let result = preserver.reinsertComments(into: serialized)
 
-        // Both comments are orphaned since their keys aren't in the output
-        #expect(result.contains("# Trailing note"))
+        // Both source comments anchor to keys absent from the output, so they
+        // are dropped rather than appended — the output is left untouched.
+        #expect(result.contains("# This comment has no matching key") == false)
+        #expect(result.contains("# Trailing note") == false)
+        #expect(result == serialized)
+    }
+
+    @Test("Dropping an orphaned comment leaves the trailing layout intact")
+    func orphanedCommentDoesNotCorruptTrailingLayout() {
+        let original = """
+        # Built-in rules we deliberately disable
+        disabled_rules:
+          - todo
+        """
+        let preserver = YAMLCommentPreserver(yamlContent: original)
+
+        // `disabled_rules` is absent from the serialized output; its comment
+        // must not be appended after a blank line at end-of-file.
+        let serialized = "opt_in_rules:\n  - empty_count\n"
+        let result = preserver.reinsertComments(into: serialized)
+
+        #expect(result == serialized)
+        #expect(result.hasSuffix("\n"))
+        #expect(result.contains("# Built-in rules we deliberately disable") == false)
     }
 
     @Test("Preserves inline comment whitespace")

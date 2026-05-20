@@ -85,37 +85,28 @@ public struct YAMLCommentPreserver: Sendable {
 
     /// Reinserts preserved comments into serialized YAML output.
     ///
-    /// Comments are placed before their associated key. Comments without
-    /// a matching key are appended at the end.
+    /// Each comment is placed on the line before its associated key. A comment
+    /// whose key is absent from the output has lost its anchor and is
+    /// discarded — appending it to the end of the file would corrupt the
+    /// trailing layout (a stray blank line and a missing final newline).
     public func reinsertComments(into yamlContent: String) -> String {
         var lines = yamlContent.components(separatedBy: .newlines)
         var insertions: [(index: Int, comment: String)] = []
 
         for entry in comments {
-            if let key = entry.followingKey {
-                // Find the line with this key in the output
-                if let targetIdx = lines.firstIndex(where: { line in
-                    let trimmed = line.trimmingCharacters(in: .whitespaces)
-                    return trimmed.hasPrefix(key + ":") || trimmed.hasPrefix("\"\(key)\":")
-                }) {
-                    insertions.append((index: targetIdx, comment: entry.line))
-                }
+            guard let key = entry.followingKey else { continue }
+            // Find the line with this key in the output.
+            if let targetIdx = lines.firstIndex(where: { line in
+                let trimmed = line.trimmingCharacters(in: .whitespaces)
+                return trimmed.hasPrefix(key + ":") || trimmed.hasPrefix("\"\(key)\":")
+            }) {
+                insertions.append((index: targetIdx, comment: entry.line))
             }
         }
 
-        // Insert in reverse order to preserve indices
+        // Insert in reverse order to preserve indices.
         for insertion in insertions.sorted(by: { $0.index > $1.index }) {
             lines.insert(insertion.comment, at: insertion.index)
-        }
-
-        // Append orphaned comments (no matching key found)
-        let insertedComments = Set(insertions.map(\.comment))
-        let orphaned = comments.filter { !insertedComments.contains($0.line) }
-        if !orphaned.isEmpty {
-            lines.append("")
-            for entry in orphaned {
-                lines.append(entry.line)
-            }
         }
 
         return lines.joined(separator: "\n")
