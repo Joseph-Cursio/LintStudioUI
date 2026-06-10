@@ -237,6 +237,14 @@ public actor CLIToolActor {
             process.standardInput = inputPipe
         }
 
+        // Bridge the exit to `await` via the termination handler instead of the
+        // blocking `process.waitUntilExit()` below. Set before `run()` so the
+        // signal is never missed, even for a process that exits immediately.
+        let exitSignal = ProcessExitSignal()
+        process.terminationHandler = { finished in
+            exitSignal.resume(finished.terminationStatus)
+        }
+
         do {
             try process.run()
         } catch {
@@ -268,7 +276,12 @@ public actor CLIToolActor {
         async let stderrRead = errorPipe.fileHandleForReading.readDataToEndOfFile()
         let stdout = await stdoutRead
         let stderr = await stderrRead
-        process.waitUntilExit()
+        // Await termination via the handler-backed signal rather than
+        // `process.waitUntilExit()`: that blocking call can wedge forever on a
+        // cooperative thread even after the pipes reach EOF and the child has
+        // been reaped, a hang the timeout below can't rescue (it only unblocks
+        // the reads). Reproduces reliably under many rapid back-to-back runs.
+        let exitCode = await exitSignal.value
 
         timeoutTask.cancel()
         let didTimeout = await timeoutTask.value
@@ -276,7 +289,7 @@ public actor CLIToolActor {
         return CLIToolResult(
             stdout: stdout,
             stderr: stderr,
-            exitCode: didTimeout ? -1 : process.terminationStatus,
+            exitCode: didTimeout ? -1 : exitCode,
             didTimeout: didTimeout
         )
     }
@@ -315,5 +328,54 @@ public actor CLIToolActor {
             return "'\(escaped)'"
         }
         return value
+    }
+}
+
+// MARK: - Exit signal
+
+/// A one-shot bridge from `Process.terminationHandler` (a C-style callback) to
+/// async `await`. It exists to replace `Process.waitUntilExit()`, whose blocking
+/// wait can wedge indefinitely on a Swift-concurrency cooperative thread even
+/// after the child has exited and its pipes have reached EOF — a hang that
+/// surfaces under many rapid back-to-back invocations and which the run timeout
+/// cannot rescue (the timeout only kills the child to unblock the pipe reads).
+///
+/// Tolerates the resume arriving before or after the `value` access: the
+/// terminated status is latched until a waiter parks, and a parked waiter is
+/// resumed the instant the status arrives.
+private final class ProcessExitSignal: @unchecked Sendable {
+    private let lock = NSLock()
+    nonisolated(unsafe) private var status: Int32?
+    nonisolated(unsafe) private var waiter: CheckedContinuation<Int32, Never>?
+
+    /// Records the process's exit status, resuming a parked waiter if present.
+    /// Called once, from the termination handler (on an arbitrary thread).
+    nonisolated func resume(_ exitStatus: Int32) {
+        lock.lock()
+        if let parked = waiter {
+            waiter = nil
+            lock.unlock()
+            parked.resume(returning: exitStatus)
+        } else {
+            status = exitStatus
+            lock.unlock()
+        }
+    }
+
+    /// The process's exit status, awaited — returning immediately if it has
+    /// already terminated.
+    nonisolated var value: Int32 {
+        get async {
+            await withCheckedContinuation { continuation in
+                lock.lock()
+                if let status {
+                    lock.unlock()
+                    continuation.resume(returning: status)
+                } else {
+                    waiter = continuation
+                    lock.unlock()
+                }
+            }
+        }
     }
 }

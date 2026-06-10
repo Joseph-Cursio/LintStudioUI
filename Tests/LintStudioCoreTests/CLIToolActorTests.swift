@@ -153,6 +153,37 @@ struct CLIToolActorTests {
         }
     }
 
+    /// Regression: many real subprocesses launched at once must all complete.
+    /// The previous `process.waitUntilExit()` blocked a Swift-concurrency
+    /// cooperative thread per run; once concurrent runs exceeded the pool width
+    /// (≈ core count) they could deadlock with the child already exited. Each
+    /// run emits a few KB so the output pipes carry real data. If the hang
+    /// returns, this test never finishes (and the suite times out) rather than
+    /// failing an assertion — that's the intended alarm.
+    @Test("many concurrent real runs all complete without wedging")
+    func concurrentRealRunsDoNotDeadlock() async throws {
+        let runCount = 24 // comfortably above the 8–12 core cooperative-pool width
+        let results = try await withThrowingTaskGroup(of: Int.self) { group in
+            for _ in 0..<runCount {
+                group.addTask {
+                    let actor = CLIToolActor(
+                        toolName: "seq",
+                        searchPaths: ["/usr/bin/seq"],
+                        successExitCodes: [0]
+                    )
+                    let result = try await actor.run(arguments: ["1", "5000"])
+                    // 1…5000, one per line — confirms the full pipe was drained.
+                    return result.stdoutString.split(separator: "\n").count
+                }
+            }
+            var counts: [Int] = []
+            for try await count in group { counts.append(count) }
+            return counts
+        }
+        #expect(results.count == runCount)
+        #expect(results.allSatisfy { $0 == 5000 })
+    }
+
     // MARK: - Timeout
 
     @Test("a run exceeding the timeout throws .timedOut")
