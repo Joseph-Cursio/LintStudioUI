@@ -15,11 +15,7 @@ public struct CategoryBadge<C: LintCategory>: View {
     public var body: some View {
         Text(category.displayName)
             .font(.caption2)
-            .padding(.horizontal, BadgeLayout.horizontalPadding)
-            .padding(.vertical, BadgeLayout.verticalPadding)
-            .background(color.opacity(BadgeLayout.backgroundOpacity))
-            .foregroundStyle(color)
-            .clipShape(.rect(cornerRadius: BadgeLayout.cornerRadius))
+            .pillBadge(color: color)
     }
 
     public init(category: C, color: Color) {

@@ -15,11 +15,7 @@ public struct SeverityBadge<S: LintSeverity>: View {
         Text(severity.rawValue.uppercased())
             .font(.caption2)
             .fontWeight(.semibold)
-            .padding(.horizontal, BadgeLayout.horizontalPadding)
-            .padding(.vertical, BadgeLayout.verticalPadding)
-            .background(severityColor.opacity(BadgeLayout.backgroundOpacity))
-            .foregroundStyle(severityColor)
-            .clipShape(.rect(cornerRadius: BadgeLayout.cornerRadius))
+            .pillBadge(color: severityColor)
     }
 
     private var severityColor: Color {
