@@ -45,13 +45,26 @@ public class FileTracker {
     // MARK: - Properties
 
     private var trackedFiles: [String: FileMetadata] = [:]
-    private let cacheURL: URL?
+
+    /// Backing store for persistence, derived from the caller's cache URL.
+    /// Nil when no cache URL was supplied (in-memory tracking only).
+    private let cache: FileCache?
+    private let cacheFileName: String?
 
     // MARK: - Initialization
 
     /// Initialize a file tracker with an optional cache URL for persistence
     public init(cacheURL: URL? = nil) {
-        self.cacheURL = cacheURL
+        if let cacheURL {
+            cache = FileCache(
+                appIdentifier: "FileTracker",
+                cacheDirectory: cacheURL.deletingLastPathComponent()
+            )
+            cacheFileName = cacheURL.lastPathComponent
+        } else {
+            cache = nil
+            cacheFileName = nil
+        }
         loadCache()
     }
 
@@ -128,10 +141,8 @@ public class FileTracker {
     // MARK: - Cache Management
 
     private func loadCache() {
-        guard let cacheURL = cacheURL,
-              FileManager.default.fileExists(atPath: cacheURL.path),
-              let data = try? Data(contentsOf: cacheURL),
-              let decoded = try? JSONDecoder().decode([String: FileMetadata].self, from: data) else {
+        guard let cache, let cacheFileName,
+              let decoded = try? cache.loadCodable([String: FileMetadata].self, from: cacheFileName) else {
             return
         }
 
@@ -142,12 +153,7 @@ public class FileTracker {
     }
 
     private func saveCache() {
-        guard let cacheURL = cacheURL else { return }
-
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        if let data = try? encoder.encode(trackedFiles) {
-            try? data.write(to: cacheURL)
-        }
+        guard let cache, let cacheFileName else { return }
+        try? cache.saveCodable(trackedFiles, to: cacheFileName)
     }
 }
