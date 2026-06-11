@@ -47,10 +47,22 @@ public enum GitServiceError: LocalizedError, Sendable {
 // MARK: - Implementation
 
 public actor GitServiceActor: GitServiceProtocol {
-    private let gitPath = URL(fileURLWithPath: "/usr/bin/git")
-    private let timeoutSeconds: UInt64 = 30
+    private static let timeoutSeconds: UInt64 = 30
 
-    public init() {}
+    /// All git invocations run through the shared CLI runner. Git is just
+    /// another developer tool: a fixed binary, a 30s timeout, and exit `0` as
+    /// the only success code (none of the commands used here rely on git's
+    /// `--exit-code` conventions).
+    private let cliTool: CLIToolActor
+
+    public init() {
+        cliTool = CLIToolActor(
+            toolName: "git",
+            searchPaths: ["/usr/bin/git"],
+            timeoutSeconds: Self.timeoutSeconds,
+            successExitCodes: [0]
+        )
+    }
 
     public func isGitRepository(at path: URL) async throws -> Bool {
         do {
@@ -116,79 +128,31 @@ public actor GitServiceActor: GitServiceProtocol {
         }
     }
 
+    /// Runs git inside `repoPath` (via git's own `-C` flag) and returns stdout.
+    /// Translates the generic `CLIToolError` into the git-specific error space
+    /// callers expect.
     private func runGit(at repoPath: URL, arguments: [String]) async throws -> String {
-        let process = Process()
-        process.executableURL = gitPath
-        process.arguments = arguments
-        process.currentDirectoryURL = repoPath
-
-        let outputPipe = Pipe()
-        let errorPipe = Pipe()
-        process.standardOutput = outputPipe
-        process.standardError = errorPipe
-
         do {
-            try process.run()
-        } catch {
-            throw GitServiceError.executionFailed(message: "Failed to launch git: \(error.localizedDescription)")
+            let result = try await cliTool.run(arguments: ["-C", repoPath.path] + arguments)
+            return result.stdoutString
+        } catch let error as CLIToolError {
+            throw Self.mapError(error)
         }
-
-        outputPipe.fileHandleForWriting.closeFile()
-        errorPipe.fileHandleForWriting.closeFile()
-
-        let result = try await readWithTimeout(outputPipe: outputPipe, errorPipe: errorPipe, process: process)
-
-        if result.didTimeout {
-            throw GitServiceError.timeout
-        }
-
-        let stderrString = String(data: result.stderr, encoding: .utf8) ?? ""
-        if !result.stdout.isEmpty || stderrString.isEmpty {
-            return String(data: result.stdout, encoding: .utf8) ?? ""
-        }
-
-        if stderrString.contains("fatal:") {
-            throw GitServiceError.executionFailed(message: stderrString.trimmingCharacters(in: .whitespacesAndNewlines))
-        }
-
-        return String(data: result.stdout, encoding: .utf8) ?? ""
     }
 
-    private struct ReadResult {
-        let stdout: Data
-        let stderr: Data
-        let didTimeout: Bool
-    }
-
-    private func readWithTimeout(outputPipe: Pipe, errorPipe: Pipe, process: Process) async throws -> ReadResult {
-        let timeoutNs = timeoutSeconds * 1_000_000_000
-        var stdout = Data()
-        var stderr = Data()
-        var didTimeout = false
-
-        do {
-            try await withThrowingTaskGroup(of: (Data, Data).self) { group in
-                group.addTask { @Sendable in
-                    async let out = outputPipe.fileHandleForReading.readDataToEndOfFile()
-                    async let err = errorPipe.fileHandleForReading.readDataToEndOfFile()
-                    return await (out, err)
-                }
-                group.addTask { @Sendable [timeoutNs] in
-                    try await Task.sleep(nanoseconds: timeoutNs)
-                    throw GitServiceError.timeout
-                }
-
-                if let result = try await group.next() {
-                    stdout = result.0
-                    stderr = result.1
-                }
-                group.cancelAll()
-            }
-        } catch is GitServiceError {
-            process.terminate()
-            didTimeout = true
+    private nonisolated static func mapError(_ error: CLIToolError) -> GitServiceError {
+        switch error {
+        case .timedOut:
+            return .timeout
+        case .notFound(_, let installMessage):
+            return .executionFailed(message: installMessage ?? "git not found.")
+        case .executionFailed(let message):
+            // CLIToolActor prefixes with "git failed: "; strip it so the
+            // surfaced message stays the raw git stderr, matching prior output
+            // and keeping showFile's "does not exist" detection working.
+            let prefix = "git failed: "
+            let detail = message.hasPrefix(prefix) ? String(message.dropFirst(prefix.count)) : message
+            return .executionFailed(message: detail)
         }
-
-        return ReadResult(stdout: stdout, stderr: stderr, didTimeout: didTimeout)
     }
 }
