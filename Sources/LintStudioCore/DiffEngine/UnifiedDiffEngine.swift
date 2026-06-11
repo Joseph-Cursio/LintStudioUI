@@ -24,16 +24,21 @@ public enum UnifiedDiffEngine {
         return rawLines
     }
 
-    // MARK: Line-level LCS
+    // MARK: Shared LCS table
 
-    private static func buildLCSTable(_ oldLines: [String], _ newLines: [String]) -> [[Int]] {
-        let rowCount = oldLines.count + 1
-        let colCount = newLines.count + 1
+    /// Builds the classic LCS dynamic-programming table for two sequences.
+    /// `table[i][j]` is the length of the longest common subsequence of the
+    /// first `i` elements of `old` and the first `j` elements of `new`. Shared
+    /// by both the line-level and character-level diffs, which differ only in
+    /// how they backtrack through it.
+    private static func buildLCSTable<Element: Equatable>(_ old: [Element], _ new: [Element]) -> [[Int]] {
+        let rowCount = old.count + 1
+        let colCount = new.count + 1
         var table = Array(repeating: Array(repeating: 0, count: colCount), count: rowCount)
 
         for idx in 1..<rowCount {
             for jdx in 1..<colCount {
-                if oldLines[idx - 1] == newLines[jdx - 1] {
+                if old[idx - 1] == new[jdx - 1] {
                     table[idx][jdx] = table[idx - 1][jdx - 1] + 1
                 } else {
                     table[idx][jdx] = max(table[idx - 1][jdx], table[idx][jdx - 1])
@@ -42,6 +47,8 @@ public enum UnifiedDiffEngine {
         }
         return table
     }
+
+    // MARK: Line-level LCS
 
     private static func buildDiffLines(
         _ oldLines: [String],
@@ -126,19 +133,7 @@ public enum UnifiedDiffEngine {
         _ oldChars: [Character],
         _ newChars: [Character]
     ) -> (old: Set<Int>, new: Set<Int>) {
-        let rowCount = oldChars.count + 1
-        let colCount = newChars.count + 1
-        var table = Array(repeating: Array(repeating: 0, count: colCount), count: rowCount)
-
-        for idx in 1..<rowCount {
-            for jdx in 1..<colCount {
-                if oldChars[idx - 1] == newChars[jdx - 1] {
-                    table[idx][jdx] = table[idx - 1][jdx - 1] + 1
-                } else {
-                    table[idx][jdx] = max(table[idx - 1][jdx], table[idx][jdx - 1])
-                }
-            }
-        }
+        let table = buildLCSTable(oldChars, newChars)
 
         var oldIndices = Set<Int>()
         var newIndices = Set<Int>()
