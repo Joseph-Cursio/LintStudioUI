@@ -31,7 +31,7 @@ let kPackage = Package(
         ),
         .testTarget(
             name: "LintStudioCoreTests",
-            dependencies: ["LintStudioCore"],
+            dependencies: ["LintStudioCore", "LintStudioUI"],
             swiftSettings: kSwiftSettings
         ),
         .testTarget(
