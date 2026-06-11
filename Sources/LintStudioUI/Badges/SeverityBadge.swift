@@ -18,7 +18,7 @@ public struct SeverityBadge<S: LintSeverity>: View {
             .pillBadge(color: severityColor)
     }
 
-    private var severityColor: Color {
+    var severityColor: Color {
         if severity.isError {
             return .red
         }

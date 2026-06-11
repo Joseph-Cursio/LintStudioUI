@@ -33,6 +33,11 @@ let kPackage = Package(
             name: "LintStudioCoreTests",
             dependencies: ["LintStudioCore"],
             swiftSettings: kSwiftSettings
+        ),
+        .testTarget(
+            name: "LintStudioUITests",
+            dependencies: ["LintStudioUI", "LintStudioCore"],
+            swiftSettings: kSwiftSettings
         )
     ]
 )

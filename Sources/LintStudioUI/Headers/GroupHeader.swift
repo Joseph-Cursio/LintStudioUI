@@ -50,7 +50,7 @@ public struct GroupHeader: View {
         }
     }
 
-    private var barColor: Color {
+    var barColor: Color {
         let ratio = maxCount > 0 ? Double(count) / Double(maxCount) : 0
         if ratio > Layout.highRatioThreshold {
             return .red
@@ -67,7 +67,7 @@ public struct GroupHeader: View {
         self.maxCount = maxCount
     }
 
-    private func barWidth(in totalWidth: CGFloat) -> CGFloat {
+    func barWidth(in totalWidth: CGFloat) -> CGFloat {
         guard maxCount > 0 else {
             return 0
         }
