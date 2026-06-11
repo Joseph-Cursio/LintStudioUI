@@ -164,16 +164,23 @@ public actor CLIToolActor {
     /// the captured streams. Applies the exit-code policy: `.timedOut` on
     /// timeout, `.notFound` on exit 127, `.executionFailed` on any exit code
     /// outside `successExitCodes`; otherwise returns the result.
+    ///
+    /// - Parameter workingDirectory: the directory to launch the process in. Set
+    ///   this when the tool resolves configuration relative to its current
+    ///   directory — SwiftLint, for instance, discovers `.swiftlint.yml` (and its
+    ///   `excluded:` paths) from the cwd, not from the path arguments. Leaving it
+    ///   `nil` inherits the parent process's cwd, which for a launched macOS app
+    ///   is `/` and causes SwiftLint to miss the workspace config entirely.
     @discardableResult
-    public func run(arguments: [String], stdin: Data? = nil) async throws -> CLIToolResult {
+    public func run(arguments: [String], stdin: Data? = nil, workingDirectory: URL? = nil) async throws -> CLIToolResult {
         let result: CLIToolResult
         if let commandRunner {
             let (stdout, stderr, exitCode) = try await commandRunner(arguments, stdin)
             result = CLIToolResult(stdout: stdout, stderr: stderr, exitCode: exitCode, didTimeout: false)
         } else if let binary = await resolvePath() {
-            result = try await runDirect(binary: binary, arguments: arguments, stdin: stdin)
+            result = try await runDirect(binary: binary, arguments: arguments, stdin: stdin, workingDirectory: workingDirectory)
         } else if allowShellFallback {
-            result = try await runViaShell(arguments: arguments, stdin: stdin)
+            result = try await runViaShell(arguments: arguments, stdin: stdin, workingDirectory: workingDirectory)
         } else {
             throw CLIToolError.notFound(tool: toolName, installMessage: installMessage)
         }
@@ -206,21 +213,23 @@ public actor CLIToolActor {
 
     // MARK: - Direct execution
 
-    private func runDirect(binary: URL, arguments: [String], stdin: Data?) async throws -> CLIToolResult {
+    private func runDirect(binary: URL, arguments: [String], stdin: Data?, workingDirectory: URL?) async throws -> CLIToolResult {
         let process = Process()
         process.executableURL = binary
         process.arguments = arguments
         process.environment = Self.buildEnvironment(base: ProcessInfo.processInfo.environment)
+        process.currentDirectoryURL = workingDirectory
         return try await launch(process, stdin: stdin)
     }
 
     // MARK: - Shell fallback
 
-    private func runViaShell(arguments: [String], stdin: Data?) async throws -> CLIToolResult {
+    private func runViaShell(arguments: [String], stdin: Data?, workingDirectory: URL?) async throws -> CLIToolResult {
         let process = Process()
         process.executableURL = URL(fileURLWithPath: "/bin/zsh")
         process.arguments = ["-c", Self.buildShellCommand(command: toolName, arguments: arguments)]
         process.environment = Self.buildEnvironment(base: ProcessInfo.processInfo.environment)
+        process.currentDirectoryURL = workingDirectory
         return try await launch(process, stdin: stdin)
     }
 

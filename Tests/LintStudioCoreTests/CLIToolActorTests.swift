@@ -153,6 +153,33 @@ struct CLIToolActorTests {
         }
     }
 
+    /// Regression: `workingDirectory` must set the launched process's cwd. Tools
+    /// like SwiftLint resolve their config (and its `excluded:` paths) relative to
+    /// the cwd, not the path arguments — without this the launched macOS app runs
+    /// SwiftLint from `/`, misses the workspace `.swiftlint.yml`, and lints
+    /// excluded dependency trees. `pwd` prints the cwd, so it pins the behavior.
+    @Test("workingDirectory launches the process in that directory")
+    func workingDirectoryIsHonored() async throws {
+        let fileManager = FileManager.default
+        let tempDir = try fileManager.url(
+            for: .itemReplacementDirectory,
+            in: .userDomainMask,
+            appropriateFor: URL(fileURLWithPath: NSTemporaryDirectory()),
+            create: true
+        )
+        defer { try? fileManager.removeItem(at: tempDir) }
+
+        let actor = CLIToolActor(
+            toolName: "pwd",
+            searchPaths: ["/bin/pwd"],
+            successExitCodes: [0]
+        )
+        let result = try await actor.run(arguments: [], workingDirectory: tempDir)
+        let trimmed = result.stdoutString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        let printed = URL(fileURLWithPath: trimmed)
+        #expect(printed.resolvingSymlinksInPath().path == tempDir.resolvingSymlinksInPath().path)
+    }
+
     /// Regression: many real subprocesses launched at once must all complete.
     /// The previous `process.waitUntilExit()` blocked a Swift-concurrency
     /// cooperative thread per run; once concurrent runs exceeded the pool width
