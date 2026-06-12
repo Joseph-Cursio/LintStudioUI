@@ -22,7 +22,7 @@ public enum FileTrackerError: LocalizedError, Sendable {
 }
 
 /// Tracks file modification times to enable incremental analysis
-public class FileTracker {
+public final class FileTracker {
 
     // MARK: - Types
 
