@@ -9,16 +9,6 @@ import LintStudioCore
 import SwiftUI
 
 public struct UnifiedDiffContentView: View {
-    private enum Layout {
-        static let legendSpacing: CGFloat = 16
-        static let swatchSpacing: CGFloat = 4
-        static let swatchCornerRadius: CGFloat = 2
-        static let swatchSize: CGFloat = 12
-        static let legendVerticalPadding: CGFloat = 8
-        static let linesVerticalPadding: CGFloat = 4
-        static let swatchOpacity = 0.12
-    }
-
     public let before: String
     public let after: String
     public var beforeLabel: String
@@ -27,49 +17,11 @@ public struct UnifiedDiffContentView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                diffLegend
+                DiffLegend(beforeLabel: beforeLabel, afterLabel: afterLabel)
                 Divider()
-                diffLinesList
+                DiffLinesList(before: before, after: after)
             }
         }
-    }
-
-    private var diffLegend: some View {
-        HStack(spacing: Layout.legendSpacing) {
-            HStack(spacing: Layout.swatchSpacing) {
-                RoundedRectangle(cornerRadius: Layout.swatchCornerRadius)
-                    .fill(Color.red.opacity(Layout.swatchOpacity))
-                    .frame(width: Layout.swatchSize, height: Layout.swatchSize)
-                Text(beforeLabel)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            HStack(spacing: Layout.swatchSpacing) {
-                RoundedRectangle(cornerRadius: Layout.swatchCornerRadius)
-                    .fill(Color.green.opacity(Layout.swatchOpacity))
-                    .frame(width: Layout.swatchSize, height: Layout.swatchSize)
-                Text(afterLabel)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-            Spacer()
-        }
-        .padding(.horizontal)
-        .padding(.vertical, Layout.legendVerticalPadding)
-    }
-
-    private var diffLinesList: some View {
-        let diffLines = UnifiedDiffEngine.computeDiff(
-            before: before,
-            after: after
-        )
-
-        return VStack(alignment: .leading, spacing: 0) {
-            ForEach(Array(diffLines.enumerated()), id: \.offset) { _, line in
-                DiffLineView(line: line)
-            }
-        }
-        .padding(.vertical, Layout.linesVerticalPadding)
     }
 
     public init(
@@ -82,5 +34,65 @@ public struct UnifiedDiffContentView: View {
         self.after = after
         self.beforeLabel = beforeLabel
         self.afterLabel = afterLabel
+    }
+}
+
+/// The red/green swatch key above the diff.
+///
+/// Extracted from a computed `some View` property on `UnifiedDiffContentView`. As its own
+/// `View` it gets its own identity, so SwiftUI can leave it alone when only the diff body
+/// changes — which is the whole of the `Computed Property View` rule's argument.
+private struct DiffLegend: View {
+    let beforeLabel: String
+    let afterLabel: String
+
+    private enum Layout {
+        static let legendSpacing: CGFloat = 16
+        static let swatchSpacing: CGFloat = 4
+        static let swatchCornerRadius: CGFloat = 2
+        static let swatchSize: CGFloat = 12
+        static let verticalPadding: CGFloat = 8
+        static let swatchOpacity = 0.12
+    }
+
+    var body: some View {
+        HStack(spacing: Layout.legendSpacing) {
+            swatch(color: .red, label: beforeLabel)
+            swatch(color: .green, label: afterLabel)
+            Spacer()
+        }
+        .padding(.horizontal)
+        .padding(.vertical, Layout.verticalPadding)
+    }
+
+    private func swatch(color: Color, label: String) -> some View {
+        HStack(spacing: Layout.swatchSpacing) {
+            RoundedRectangle(cornerRadius: Layout.swatchCornerRadius)
+                .fill(color.opacity(Layout.swatchOpacity))
+                .frame(width: Layout.swatchSize, height: Layout.swatchSize)
+            Text(label)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+    }
+}
+
+/// The diff itself, one row per line.
+private struct DiffLinesList: View {
+    let before: String
+    let after: String
+
+    private enum Layout {
+        static let verticalPadding: CGFloat = 4
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            ForEach(Array(UnifiedDiffEngine.computeDiff(before: before, after: after).enumerated()),
+                    id: \.offset) { _, line in
+                DiffLineView(line: line)
+            }
+        }
+        .padding(.vertical, Layout.verticalPadding)
     }
 }
