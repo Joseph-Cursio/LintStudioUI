@@ -24,7 +24,7 @@ public struct DiffLineView: View {
                 .foregroundStyle(line.prefixColor)
                 .frame(width: Layout.prefixColumnWidth, alignment: .center)
 
-            lineContent
+            DiffLineContent(line: line)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(.horizontal, Layout.horizontalPadding)
@@ -32,8 +32,25 @@ public struct DiffLineView: View {
         .background(line.backgroundColor)
     }
 
-    @ViewBuilder private var lineContent: some View {
-        if !line.spans.isEmpty {
+
+    public init(line: DiffLine) {
+        self.line = line
+    }
+}
+
+/// One diff line's text, either as highlighted spans or as a plain run.
+///
+/// Extracted from an `@ViewBuilder` computed property on `DiffLineView`. As its own `View` the
+/// branch gets its own identity, so SwiftUI is not re-evaluating both arms of the choice
+/// through the parent's body.
+private struct DiffLineContent: View {
+    let line: DiffLine
+
+    var body: some View {
+        if line.spans.isEmpty {
+            Text(line.text.isEmpty ? " " : line.text)
+                .font(.system(.body, design: .monospaced))
+        } else {
             HStack(spacing: 0) {
                 ForEach(Array(line.spans.enumerated()), id: \.offset) { _, span in
                     Text(span.text)
@@ -41,13 +58,6 @@ public struct DiffLineView: View {
                         .background(span.isHighlighted ? line.highlightColor : .clear)
                 }
             }
-        } else {
-            Text(line.text.isEmpty ? " " : line.text)
-                .font(.system(.body, design: .monospaced))
         }
-    }
-
-    public init(line: DiffLine) {
-        self.line = line
     }
 }
