@@ -30,9 +30,8 @@ public enum SafeFileWriter {
         _ content: String,
         to destination: URL,
         createBackup: Bool = true,
-        // The seam itself, and the one place in this type that reads a clock. The rule is
-        // right that this default reads ambient time — that is what a default is for.
-        // swiftprojectlint:disable:next non-injected-nondeterminism
+        // The seam itself, and the one place in this type that reads a clock — that is what a
+        // default is for.
         now: @Sendable () -> Date = { Date() }
     ) throws {
         let fileManager = FileManager.default
