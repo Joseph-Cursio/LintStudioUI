@@ -49,3 +49,11 @@ public struct CodeBlock: View {
         self.isError = isError
     }
 }
+
+#Preview {
+    VStack(spacing: 12) {
+        CodeBlock(code: "let x = try! decoder.decode(Model.self, from: data)", isError: true)
+        CodeBlock(code: "let x = try decoder.decode(Model.self, from: data)", isError: false)
+    }
+    .padding()
+}
