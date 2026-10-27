@@ -130,7 +130,10 @@ opt_in_rules:
 - empty_string
 - let_var_whitespace
 - prefixed_toplevel_constant
-- sorted_enum_cases
+# sorted_enum_cases: OFF by default — the re-order destroys ordinal ranks
+# (a Tier / SyncSessionResponse.Phase / FileOperation order); a style
+# rule can't tell ordinal from nominal. See SwiftLint Never Autofix /
+# sorted_enum_cases.
 - conditional_returns_on_newline
 - prefer_condition_list
 - type_contents_order
