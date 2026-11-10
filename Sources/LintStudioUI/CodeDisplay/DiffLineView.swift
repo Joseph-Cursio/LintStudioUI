@@ -8,6 +8,30 @@
 import LintStudioCore
 import SwiftUI
 
+/// One diff line's text, either as highlighted spans or as a plain run.
+///
+/// Extracted from an `@ViewBuilder` computed property on `DiffLineView`. As its own `View` the
+/// branch gets its own identity, so SwiftUI is not re-evaluating both arms of the choice
+/// through the parent's body.
+private struct DiffLineContent: View {
+    let line: DiffLine
+
+    var body: some View {
+        if line.spans.isEmpty {
+            Text(line.text.isEmpty ? " " : line.text)
+                .font(.system(.body, design: .monospaced))
+        } else {
+            HStack(spacing: 0) {
+                ForEach(Array(line.spans.enumerated()), id: \.offset) { _, span in
+                    Text(span.text)
+                        .font(.system(.body, design: .monospaced))
+                        .background(span.isHighlighted ? line.highlightColor : .clear)
+                }
+            }
+        }
+    }
+}
+
 public struct DiffLineView: View {
     private enum Layout {
         static let prefixColumnWidth: CGFloat = 20
@@ -32,32 +56,7 @@ public struct DiffLineView: View {
         .background(line.backgroundColor)
     }
 
-
     public init(line: DiffLine) {
         self.line = line
-    }
-}
-
-/// One diff line's text, either as highlighted spans or as a plain run.
-///
-/// Extracted from an `@ViewBuilder` computed property on `DiffLineView`. As its own `View` the
-/// branch gets its own identity, so SwiftUI is not re-evaluating both arms of the choice
-/// through the parent's body.
-private struct DiffLineContent: View {
-    let line: DiffLine
-
-    var body: some View {
-        if line.spans.isEmpty {
-            Text(line.text.isEmpty ? " " : line.text)
-                .font(.system(.body, design: .monospaced))
-        } else {
-            HStack(spacing: 0) {
-                ForEach(Array(line.spans.enumerated()), id: \.offset) { _, span in
-                    Text(span.text)
-                        .font(.system(.body, design: .monospaced))
-                        .background(span.isHighlighted ? line.highlightColor : .clear)
-                }
-            }
-        }
     }
 }

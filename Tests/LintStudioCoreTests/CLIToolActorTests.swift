@@ -17,7 +17,7 @@ struct CLIToolActorTests {
 
     /// A command runner that records the arguments/stdin it was given and
     /// returns a canned result.
-    private nonisolated final class RunnerSpy: @unchecked Sendable {
+    nonisolated private final class RunnerSpy: @unchecked Sendable {
         var receivedArguments: [String] = []
         var receivedStdin: Data?
     }
@@ -41,9 +41,8 @@ struct CLIToolActorTests {
     func detectPathReturnsFirstExisting() async throws {
         let actor = CLIToolActor(
             toolName: "faketool",
-            searchPaths: ["/nope/faketool", "/opt/homebrew/bin/faketool"],
-            fileExists: { $0 == "/opt/homebrew/bin/faketool" }
-        )
+            searchPaths: ["/nope/faketool", "/opt/homebrew/bin/faketool"]
+        ) { $0 == "/opt/homebrew/bin/faketool" }
         let url = try await actor.detectPath()
         #expect(url.path == "/opt/homebrew/bin/faketool")
     }
@@ -53,9 +52,8 @@ struct CLIToolActorTests {
         let actor = CLIToolActor(
             toolName: "faketool",
             searchPaths: ["/nope/faketool"],
-            installMessage: "install faketool please",
-            fileExists: { _ in false }
-        )
+            installMessage: "install faketool please"
+        ) { _ in false }
         await #expect(throws: CLIToolError.self) {
             try await actor.detectPath()
         }
@@ -81,7 +79,10 @@ struct CLIToolActorTests {
 
     @Test("exit 127 maps to .notFound")
     func exit127MapsToNotFound() async {
-        let actor = CLIToolActor(toolName: "swiftlint", commandRunner: runner(stderr: "command not found", exitCode: 127))
+        let actor = CLIToolActor(
+            toolName: "swiftlint",
+            commandRunner: runner(stderr: "command not found", exitCode: 127)
+        )
         await #expect(throws: CLIToolError.self) {
             try await actor.run(arguments: [])
         }
@@ -208,7 +209,7 @@ struct CLIToolActorTests {
             return counts
         }
         #expect(results.count == runCount)
-        #expect(results.allSatisfy { $0 == 5000 })
+        #expect(results.allSatisfy { $0 == 5_000 })
     }
 
     // MARK: - Timeout
@@ -242,7 +243,7 @@ struct CLIToolActorTests {
         #expect(paths == [
             "/opt/homebrew/bin/swiftlint",
             "/usr/local/bin/swiftlint",
-            "/usr/bin/swiftlint"
+            "/usr/bin/swiftlint",
         ])
     }
 

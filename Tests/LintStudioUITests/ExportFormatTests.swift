@@ -29,7 +29,7 @@ struct ExportFormatTests {
         arguments: [
             (ExportFormat.csv, "Spreadsheet"),
             (ExportFormat.html, "Interactive report"),
-            (ExportFormat.json, "Machine-readable")
+            (ExportFormat.json, "Machine-readable"),
         ]
     )
     func subtitle(format: ExportFormat, expected: String) {
@@ -41,7 +41,7 @@ struct ExportFormatTests {
         arguments: [
             (ExportFormat.csv, "tablecells"),
             (ExportFormat.html, "doc.richtext"),
-            (ExportFormat.json, "curlybraces")
+            (ExportFormat.json, "curlybraces"),
         ]
     )
     func iconName(format: ExportFormat, expected: String) {
@@ -53,7 +53,7 @@ struct ExportFormatTests {
         arguments: [
             (ExportFormat.csv, "csv"),
             (ExportFormat.html, "html"),
-            (ExportFormat.json, "json")
+            (ExportFormat.json, "json"),
         ]
     )
     func fileExtension(format: ExportFormat, expected: String) {

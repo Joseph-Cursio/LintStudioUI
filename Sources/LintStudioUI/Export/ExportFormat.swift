@@ -5,8 +5,6 @@
 //  Available export formats for lint reports
 //
 
-import SwiftUI
-
 public enum ExportFormat: String, CaseIterable, Identifiable, Sendable {
     case csv = "CSV"
     case html = "HTML"

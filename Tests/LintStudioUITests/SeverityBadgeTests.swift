@@ -43,7 +43,7 @@ struct SeverityBadgeTests {
     @Test("Error takes precedence even if a severity were also info")
     func errorWinsOverInfo() {
         // isError is checked before isInfo, so an error-and-info severity is red.
-        struct ErrorAndInfo: LintSeverity {
+        nonisolated struct ErrorAndInfo: LintSeverity {
             let rawValue = "fatal"
             var displayName: String { "Fatal" }
             var isError: Bool { true }
