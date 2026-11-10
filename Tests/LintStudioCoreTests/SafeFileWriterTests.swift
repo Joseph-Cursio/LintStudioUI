@@ -114,7 +114,7 @@ struct SafeFileWriterTests {
         try "original".write(to: destination, atomically: true, encoding: .utf8)
 
         let instant = Date(timeIntervalSince1970: 1_700_000_000)
-        try SafeFileWriter.write("updated", to: destination, now: { instant })
+        try SafeFileWriter.write("updated", to: destination) { instant }
 
         let names = try FileManager.default.contentsOfDirectory(atPath: directory.path)
         #expect(names.contains("config.yml.1700000000.backup"), "got \(names)")
@@ -127,8 +127,9 @@ struct SafeFileWriterTests {
 
         #expect(SafeFileWriter.backupName(for: destination, at: instant)
             == "config.yml.1700000000.backup")
-        #expect(SafeFileWriter.backupName(for: destination, at: instant)
-            == SafeFileWriter.backupName(for: destination, at: instant))
+        let first = SafeFileWriter.backupName(for: destination, at: instant)
+        let second = SafeFileWriter.backupName(for: destination, at: instant)
+        #expect(first == second)
     }
 
     @Test("two writes inside the same second share one backup")
@@ -144,8 +145,8 @@ struct SafeFileWriterTests {
         try "first".write(to: destination, atomically: true, encoding: .utf8)
 
         let instant = Date(timeIntervalSince1970: 1_700_000_000)
-        try SafeFileWriter.write("second", to: destination, now: { instant })
-        try SafeFileWriter.write("third", to: destination, now: { instant })
+        try SafeFileWriter.write("second", to: destination) { instant }
+        try SafeFileWriter.write("third", to: destination) { instant }
 
         let backups = try FileManager.default.contentsOfDirectory(atPath: directory.path)
             .filter { $0.hasSuffix(".backup") }
@@ -163,12 +164,11 @@ struct SafeFileWriterTests {
         try "first".write(to: destination, atomically: true, encoding: .utf8)
 
         let instant = Date(timeIntervalSince1970: 1_700_000_000)
-        try SafeFileWriter.write("second", to: destination, now: { instant })
-        try SafeFileWriter.write("third", to: destination, now: { instant.addingTimeInterval(1) })
+        try SafeFileWriter.write("second", to: destination) { instant }
+        try SafeFileWriter.write("third", to: destination) { instant.addingTimeInterval(1) }
 
         let backups = try FileManager.default.contentsOfDirectory(atPath: directory.path)
             .filter { $0.hasSuffix(".backup") }
         #expect(backups.count == 2)
     }
-
 }

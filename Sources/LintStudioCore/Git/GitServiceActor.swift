@@ -32,12 +32,16 @@ public enum GitServiceError: LocalizedError, Sendable {
         switch self {
         case .notARepository:
             return "The specified directory is not a git repository."
+
         case .branchNotFound(let branch):
             return "Branch '\(branch)' not found."
-        case .fileNotFound(let branch, let path):
+
+        case let .fileNotFound(branch, path):
             return "File '\(path)' not found on branch '\(branch)'."
+
         case .executionFailed(let message):
             return "Git command failed: \(message)"
+
         case .timeout:
             return "Git command timed out after 30 seconds."
         }
@@ -140,12 +144,14 @@ public actor GitServiceActor: GitServiceProtocol {
         }
     }
 
-    private nonisolated static func mapError(_ error: CLIToolError) -> GitServiceError {
+    nonisolated private static func mapError(_ error: CLIToolError) -> GitServiceError {
         switch error {
         case .timedOut:
             return .timeout
+
         case .notFound(_, let installMessage):
             return .executionFailed(message: installMessage ?? "git not found.")
+
         case .executionFailed(let message):
             // CLIToolActor prefixes with "git failed: "; strip it so the
             // surfaced message stays the raw git stderr, matching prior output

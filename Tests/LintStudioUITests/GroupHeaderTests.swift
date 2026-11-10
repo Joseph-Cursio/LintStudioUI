@@ -48,7 +48,7 @@ struct GroupHeaderTests {
 
     @Test("A tiny proportion is clamped to the minimum bar width")
     func clampsToMinimum() {
-        #expect(header(count: 1, maxCount: 1000).barWidth(in: 80) == 3)
+        #expect(header(count: 1, maxCount: 1_000).barWidth(in: 80) == 3)
     }
 
     @Test("A zero maxCount produces zero width")

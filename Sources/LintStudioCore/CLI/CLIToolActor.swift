@@ -17,7 +17,7 @@ import Foundation
 // MARK: - Result
 
 /// The outcome of a single CLI invocation.
-public nonisolated struct CLIToolResult: Sendable {
+nonisolated public struct CLIToolResult: Sendable {
     /// Raw standard-output bytes.
     public let stdout: Data
     /// Raw standard-error bytes.
@@ -54,11 +54,13 @@ public enum CLIToolError: LocalizedError, Sendable {
 
     public var errorDescription: String? {
         switch self {
-        case .notFound(let tool, let installMessage):
+        case let .notFound(tool, installMessage):
             return installMessage ?? "\(tool) not found."
+
         case .executionFailed(let message):
             return message
-        case .timedOut(let tool, let seconds):
+
+        case let .timedOut(tool, seconds):
             return "\(tool) command timed out after \(seconds) seconds."
         }
     }
@@ -68,7 +70,8 @@ public enum CLIToolError: LocalizedError, Sendable {
 
 /// Runs the tool with the given arguments, returning `(stdout, stderr, exitCode)`.
 /// Injected in tests to return canned fixtures without launching a process.
-public typealias CLIToolCommandRunner = @Sendable (_ arguments: [String], _ stdin: Data?) async throws -> (Data, Data, Int32)
+public typealias CLIToolCommandRunner =
+    @Sendable (_ arguments: [String], _ stdin: Data?) async throws -> (Data, Data, Int32)
 
 /// Checks whether a file exists at a path. Injected in tests.
 public typealias CLIToolFileExists = @Sendable (String) async -> Bool
@@ -103,7 +106,7 @@ public actor CLIToolActor {
         [
             "/opt/homebrew/bin/\(tool)", // Apple Silicon Homebrew (most common)
             "/usr/local/bin/\(tool)",    // Intel Homebrew
-            "/usr/bin/\(tool)"           // System installation
+            "/usr/bin/\(tool)",          // System installation
         ]
     }
 
@@ -172,13 +175,22 @@ public actor CLIToolActor {
     ///   `nil` inherits the parent process's cwd, which for a launched macOS app
     ///   is `/` and causes SwiftLint to miss the workspace config entirely.
     @discardableResult
-    public func run(arguments: [String], stdin: Data? = nil, workingDirectory: URL? = nil) async throws -> CLIToolResult {
+    public func run(
+        arguments: [String],
+        stdin: Data? = nil,
+        workingDirectory: URL? = nil
+    ) async throws -> CLIToolResult {
         let result: CLIToolResult
         if let commandRunner {
             let (stdout, stderr, exitCode) = try await commandRunner(arguments, stdin)
             result = CLIToolResult(stdout: stdout, stderr: stderr, exitCode: exitCode, didTimeout: false)
         } else if let binary = await resolvePath() {
-            result = try await runDirect(binary: binary, arguments: arguments, stdin: stdin, workingDirectory: workingDirectory)
+            result = try await runDirect(
+                binary: binary,
+                arguments: arguments,
+                stdin: stdin,
+                workingDirectory: workingDirectory
+            )
         } else if allowShellFallback {
             result = try await runViaShell(arguments: arguments, stdin: stdin, workingDirectory: workingDirectory)
         } else {
@@ -213,7 +225,12 @@ public actor CLIToolActor {
 
     // MARK: - Direct execution
 
-    private func runDirect(binary: URL, arguments: [String], stdin: Data?, workingDirectory: URL?) async throws -> CLIToolResult {
+    private func runDirect(
+        binary: URL,
+        arguments: [String],
+        stdin: Data?,
+        workingDirectory: URL?
+    ) async throws -> CLIToolResult {
         let process = Process()
         process.executableURL = binary
         process.arguments = arguments
@@ -337,54 +354,5 @@ public actor CLIToolActor {
             return "'\(escaped)'"
         }
         return value
-    }
-}
-
-// MARK: - Exit signal
-
-/// A one-shot bridge from `Process.terminationHandler` (a C-style callback) to
-/// async `await`. It exists to replace `Process.waitUntilExit()`, whose blocking
-/// wait can wedge indefinitely on a Swift-concurrency cooperative thread even
-/// after the child has exited and its pipes have reached EOF — a hang that
-/// surfaces under many rapid back-to-back invocations and which the run timeout
-/// cannot rescue (the timeout only kills the child to unblock the pipe reads).
-///
-/// Tolerates the resume arriving before or after the `value` access: the
-/// terminated status is latched until a waiter parks, and a parked waiter is
-/// resumed the instant the status arrives.
-private final class ProcessExitSignal: @unchecked Sendable {
-    private let lock = NSLock()
-    nonisolated(unsafe) private var status: Int32?
-    nonisolated(unsafe) private var waiter: CheckedContinuation<Int32, Never>?
-
-    /// Records the process's exit status, resuming a parked waiter if present.
-    /// Called once, from the termination handler (on an arbitrary thread).
-    nonisolated func resume(_ exitStatus: Int32) {
-        lock.lock()
-        if let parked = waiter {
-            waiter = nil
-            lock.unlock()
-            parked.resume(returning: exitStatus)
-        } else {
-            status = exitStatus
-            lock.unlock()
-        }
-    }
-
-    /// The process's exit status, awaited — returning immediately if it has
-    /// already terminated.
-    nonisolated var value: Int32 {
-        get async {
-            await withCheckedContinuation { continuation in
-                lock.lock()
-                if let status {
-                    lock.unlock()
-                    continuation.resume(returning: status)
-                } else {
-                    waiter = continuation
-                    lock.unlock()
-                }
-            }
-        }
     }
 }
