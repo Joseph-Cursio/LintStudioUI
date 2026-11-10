@@ -5,8 +5,6 @@
 //  HTML/CSS template for lint reports
 //
 
-// swiftlint:disable function_body_length
-
 /// Provides the HTML wrapper template with embedded CSS for lint reports
 public enum HTMLReportTemplate {
     /// Wraps report body HTML in a complete HTML document with embedded CSS.
@@ -34,6 +32,22 @@ public enum HTMLReportTemplate {
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <title>\(escapedTitle)</title>
           <style>
+        \(Self.stylesheet)
+          </style>
+        </head>
+        <body>
+          <h1>\(escapedTitle)</h1>
+          <p class="timestamp">Generated \(escapedTimestamp)</p>
+          \(body)
+          <div class="footer">\(escapedFooter)</div>
+        </body>
+        </html>
+        """
+    }
+
+    /// The report's embedded CSS: light and dark palettes, summary cards,
+    /// per-file violation tables and rule details.
+    nonisolated private static let stylesheet = """
             :root {
               --bg: #ffffff; --fg: #1a1a1a; --muted: #666;
               --border: #e0e0e0; --card-bg: #f8f8f8;
@@ -101,16 +115,5 @@ public enum HTMLReportTemplate {
             .rule-meta span { margin-right: 16px; }
             .footer { text-align: center; color: var(--muted); font-size: 11px;
                        margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); }
-          </style>
-        </head>
-        <body>
-          <h1>\(escapedTitle)</h1>
-          <p class="timestamp">Generated \(escapedTimestamp)</p>
-          \(body)
-          <div class="footer">\(escapedFooter)</div>
-        </body>
-        </html>
         """
-    }
 }
-// swiftlint:enable function_body_length
