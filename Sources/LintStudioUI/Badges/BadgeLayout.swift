@@ -5,7 +5,7 @@
 //  Shared layout constants for badge views
 //
 
-import SwiftUI
+import CoreFoundation
 
 /// Shared layout constants for badge views.
 enum BadgeLayout {
